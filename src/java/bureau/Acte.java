@@ -54,6 +54,18 @@ public class Acte implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     List<Image> images;
 
+    public Acte(Date date, Date heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Image> images) {
+        this.date = date;
+        this.heure = heure;
+        this.IEP = IEP;
+        this.code_UF = code_UF;
+        this.id_modalite = id_modalite;
+        this.code_CCAM = code_CCAM;
+        this.images = images;
+    }
+    
+    
+
     public int getId_acte() {
         return id_acte;
     }
