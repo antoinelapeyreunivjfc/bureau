@@ -52,9 +52,9 @@ public class Acte implements Serializable {
     
     @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    List<Image> images;
+    List<Images> images;
 
-    public Acte(Date date, Date heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Image> images) {
+    public Acte(Date date, Date heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
         this.date = date;
         this.heure = heure;
         this.IEP = IEP;
@@ -122,11 +122,11 @@ public class Acte implements Serializable {
         this.code_CCAM = code_CCAM;
     }
 
-    public List<Image> getImages() {
+    public List<Images> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<Images> images) {
         this.images = images;
     }
     
