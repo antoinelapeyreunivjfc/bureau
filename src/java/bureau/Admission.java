@@ -27,9 +27,8 @@ public class Admission implements Serializable {
  private String nom_patient;
  
  private String prenom_patient;
- private String IPP_Patient;
- 
-List liste_actes=new ArrayList() ;
+ private String IPP_patient;
+ List<Acte> actes;
 
 
     public String getIEP() {
@@ -44,12 +43,12 @@ List liste_actes=new ArrayList() ;
         return prenom_patient;
     }
 
-    public String getIPP_Patient() {
-        return IPP_Patient;
+    public String getIPP_patient() {
+        return IPP_patient;
     }
 
-    public List getListe_actes() {
-        return liste_actes;
+    public List<Acte> getActes() {
+        return actes;
     }
 
     public void setIEP(String IEP) {
@@ -64,12 +63,12 @@ List liste_actes=new ArrayList() ;
         this.prenom_patient = prenom_patient;
     }
 
-    public void setIPP_Patient(String IPP_Patient) {
-        this.IPP_Patient = IPP_Patient;
+    public void setIPP_patient(String IPP_Patient) {
+        this.IPP_patient = IPP_Patient;
     }
 
-    public void setListe_actes(List liste_actes) {
-        this.liste_actes = liste_actes;
+    public void setActes(List<Acte> actes) {
+        this.actes = actes;
     }
 
 

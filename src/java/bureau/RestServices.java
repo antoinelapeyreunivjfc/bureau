@@ -180,7 +180,7 @@ public class RestServices {
     @Path("admission/{IEP}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response editAdmission(Admission ad) {
-        serv.editActe(ad);
+        serv.editAdmission(ad);
         return Response.status(200).entity(ad).build();
     }
     

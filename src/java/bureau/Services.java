@@ -237,13 +237,27 @@ public class Services {
         return res;
     }
     
-    public void newAdmission(Admission ad) {
+    public Admission newAdmission(Admission ad) {
 	em.getTransaction( ).begin( );
         em.persist(ad);
         em.getTransaction().commit();
+        return ad;
+    }
+     public Admission newAdmission(String IEP, String nom_patient,String prenom_patient,String IPP_patient, List<Acte> actes) {
+        Admission ad = new Admission();
+	em.getTransaction( ).begin( );
+        ad.setIEP(IEP);
+        ad.setNom_patient(nom_patient);
+        ad.setPrenom_patient(prenom_patient);
+        ad.setIPP_patient(IPP_patient);
+        ad.setActes(actes);
+        em.persist(ad);
+        em.getTransaction().commit();
+        return ad;
     }
     
-    public void editActe(Admission ad) {
+    
+    public void editAdmission(Admission ad) {
       
 	em.getTransaction( ).begin( );
         em.merge(ad);
