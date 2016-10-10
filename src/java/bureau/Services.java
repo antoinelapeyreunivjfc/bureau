@@ -200,6 +200,13 @@ public class Services {
         em.getTransaction().commit();
        
     }
+     public void deleteAllActes() {
+      
+        em.getTransaction( ).begin( );
+        em.createQuery("DELETE FROM Acte").executeUpdate();
+        em.getTransaction().commit();
+        
+    }
      public Admission getAdmissionByIEP(int IEP) {
        
 	Admission res = em.find( Admission.class, IEP );
@@ -241,4 +248,7 @@ public class Services {
         em.getTransaction().commit();
         
     }
-    }
+    
+
+  
+}

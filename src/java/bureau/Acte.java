@@ -29,10 +29,10 @@ public class Acte implements Serializable {
     private int id_acte;
     
     @Column
-    Date date;
+    String date;
     
     @Column
-    Date heure;
+    String heure;
     
     @Column
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -54,7 +54,7 @@ public class Acte implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     List<Images> images;
 
-    public Acte(Date date, Date heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
+    public Acte(String date, String heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
         this.date = date;
         this.heure = heure;
         this.IEP = IEP;
@@ -74,19 +74,19 @@ public class Acte implements Serializable {
         this.id_acte = id_acte;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getHeure() {
+    public String getHeure() {
         return heure;
     }
 
-    public void setHeure(Date heure) {
+    public void setHeure(String heure) {
         this.heure = heure;
     }
 
