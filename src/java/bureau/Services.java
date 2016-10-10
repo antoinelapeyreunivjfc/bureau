@@ -185,7 +185,14 @@ public class Services {
     }
     
     public Acte newActe(String date, String heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
-        Acte ac = new Acte(date, heure, IEP, code_UF, id_modalite, code_CCAM, images);
+        Acte ac = new Acte();
+        ac.setDate(date);
+        ac.setHeure(heure);
+        ac.setIEP(IEP);
+        ac.setCode_UF(code_UF);
+        ac.setId_modalite(id_modalite);
+        ac.setCode_CCAM(code_CCAM);
+        ac.setImages(images);
      
 	em.getTransaction( ).begin( );
         em.persist(ac);
