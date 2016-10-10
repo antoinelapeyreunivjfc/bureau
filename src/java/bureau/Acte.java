@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +18,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Skip
  */
+@Entity
+@XmlRootElement
 public class Acte implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,18 +57,6 @@ public class Acte implements Serializable {
     @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     List<Images> images;
-
-    public Acte(String date, String heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
-        this.date = date;
-        this.heure = heure;
-        this.IEP = IEP;
-        this.code_UF = code_UF;
-        this.id_modalite = id_modalite;
-        this.code_CCAM = code_CCAM;
-        this.images = images;
-    }
-    
-    
 
     public int getId_acte() {
         return id_acte;
