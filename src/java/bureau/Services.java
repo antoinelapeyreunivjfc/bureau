@@ -191,4 +191,13 @@ public class Services {
         em.getTransaction().commit();
      
     }
+    
+    public void removeActe(int id) {
+       
+        Acte ac = em.find( Acte.class, id );
+	em.getTransaction( ).begin( );
+        em.remove(ac);
+        em.getTransaction().commit();
+       
+    }
 }

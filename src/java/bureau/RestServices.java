@@ -146,5 +146,12 @@ public class RestServices {
         serv.editActe(ac);
         return Response.status(200).entity(ac).build();
     }
+    
+    @DELETE
+    @Path("actes/{id}")
+    public Response removeActe(@PathParam("id") int id) {
+        serv.removeActe(id);
+        return Response.status(200).build();
+    }
    
 }
