@@ -8,11 +8,14 @@ package bureau;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,17 +26,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Admission implements Serializable {
     
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   private String IEP;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String IEP;
    
- @Column
- private String nom_patient;
+    @Column
+    String nom_patient;
  
- private String prenom_patient;
- private String IPP_patient;
- List<Acte> actes;
-
+    @Column
+    String prenom_patient;
+    
+    @Column
+    String IPP_patient;
+    
+    @Column
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    List<Acte> actes;
 
     public String getIEP() {
         return IEP;
