@@ -39,7 +39,6 @@ public class Acte implements Serializable {
     String heure;
     
     @Column
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     String IEP;
     
     @Column
