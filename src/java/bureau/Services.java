@@ -184,6 +184,16 @@ public class Services {
         em.getTransaction().commit();
     }
     
+    public Acte newActe(String date, String heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
+        Acte ac = new Acte(date, heure, IEP, code_UF, id_modalite, code_CCAM, images);
+     
+	em.getTransaction( ).begin( );
+        em.persist(ac);
+        em.getTransaction().commit();
+      
+        return ac;
+    }
+    
     public void editActe(Acte ac) {
       
 	em.getTransaction( ).begin( );
