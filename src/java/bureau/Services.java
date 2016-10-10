@@ -200,4 +200,45 @@ public class Services {
         em.getTransaction().commit();
        
     }
-}
+     public Admission getAdmissionByIEP(int IEP) {
+       
+	Admission res = em.find( Admission.class, IEP );
+      
+        return res;
+    }
+    
+    public List<Admission> getAllAdmission() {
+	TypedQuery<Admission> query = em.createQuery("SELECT ad FROM Admission ad", Admission.class);
+        List<Admission> res = query.getResultList();
+        return res;
+    }
+    
+    public void newAdmission(Admission ad) {
+	em.getTransaction( ).begin( );
+        em.persist(ad);
+        em.getTransaction().commit();
+    }
+    
+    public void editActe(Admission ad) {
+      
+	em.getTransaction( ).begin( );
+        em.merge(ad);
+        em.getTransaction().commit();
+     
+    }
+    
+    public void removeAdmission(int IEP) {
+       
+        Admission ac = em.find( Admission.class, IEP );
+	em.getTransaction( ).begin( );
+        em.remove(ac);
+        em.getTransaction().commit();
+       
+    }
+    public void deleteAllAdmission (){
+         em.getTransaction( ).begin( );
+        em.createQuery("DELETE FROM Admission").executeUpdate();
+        em.getTransaction().commit();
+        
+    }
+    }

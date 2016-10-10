@@ -153,5 +153,42 @@ public class RestServices {
         serv.removeActe(id);
         return Response.status(200).build();
     }
-   
+   @GET
+    @Path("admission/{IEP}")
+    @Produces("application/json")
+    public Admission getAdmission(@PathParam("IEP") int IEP) {
+        return serv.getAdmissionByIEP(IEP);   }
+    
+    @GET
+    @Path("admission")
+    @Produces("application/json")
+    public List<Admission> getAllAdmission(){
+        return serv.getAllAdmission();
+    }
+    
+    @POST
+    @Path("admission")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public Admission newAdmission(Admission ad) {
+        serv.newAdmission(ad);
+        System.out.println("IEP:"+ad.getIEP());
+        return ad;
+    }
+    
+    @POST
+    @Path("admission/{IEP}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editAdmission(Admission ad) {
+        serv.editActe(ad);
+        return Response.status(200).entity(ad).build();
+    }
+    
+    @DELETE
+    @Path("admission/{IEP}")
+    public Response removeAdmission(@PathParam("IEP") int IEP) {
+        serv.removeAdmission(IEP);
+        return Response.status(200).build();
+    }
+    
 }
