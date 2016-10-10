@@ -177,4 +177,10 @@ public class Services {
         List<Acte> res = query.getResultList();
         return res;
     }
+    
+    public void newActe(Acte ac) {
+	em.getTransaction( ).begin( );
+        em.persist(ac);
+        em.getTransaction().commit();
+    }
 }

@@ -128,5 +128,15 @@ public class RestServices {
     public List<Acte> getAllActes(){
         return serv.getAllActes();
     }
+    
+    @POST
+    @Path("acte")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public Acte newActe(Acte ac) {
+        serv.newActe(ac);
+        System.out.println("id:"+ac.getId_acte());
+        return ac;
+    }
    
 }
