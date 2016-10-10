@@ -8,7 +8,9 @@ import bureau.Boite;
 import bureau.Crayon;
 import bureau.DatabaseUtils;
 import bureau.Services;
+import bureau.Acte;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -59,12 +61,13 @@ public class bureauTest {
         Services serv = new Services(DatabaseUtils.fact());
         serv.deleteAllBoites();
         serv.deleteAllCrayons();
-        List<Crayon> res = serv.getAllCrayons();
-        assert(res.isEmpty());
+        serv.deleteAllActes();
+        //List<Crayon> res = serv.getAllCrayons();
+        //assert(res.isEmpty());
     }
     
         
-    @Test
+    /*@Test
     public void crayon() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
@@ -134,6 +137,21 @@ public class bureauTest {
         
         serv.updateBoite(b);
         
+        
+    }*/
+    
+    @Test
+    public void acte() {
+        clean();
+        Services serv = new Services(DatabaseUtils.fact());
+        Acte ac = serv.newActe("10/10/2016", "10h54", "456", "12", "48", "55", null);
+        assertNotNull(ac); 
+        
+        Acte res = serv.getActesById(ac.getId_acte());
+        System.out.println(res.getDate() + " " + res.getHeure());
+      
+        List<Acte> res2 = serv.getAllActes();
+        System.out.println(res2.size());
         
     }
 }
