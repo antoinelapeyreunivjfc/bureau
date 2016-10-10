@@ -7,12 +7,16 @@ package bureau;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Nicolas
  */
+@Entity
+@XmlRootElement
 public class UF implements Serializable {
     @Id
     private int code_UF;

@@ -6,14 +6,18 @@
 package bureau;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Charline
  */
+@Entity
+@XmlRootElement
 public class Images {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

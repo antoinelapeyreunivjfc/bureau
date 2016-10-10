@@ -42,15 +42,12 @@ public class Acte implements Serializable {
     String IEP;
     
     @Column
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     String code_UF;
     
     @Column
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     String id_modalite;
     
     @Column
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     String code_CCAM;
     
     @Column
