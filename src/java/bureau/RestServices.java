@@ -115,5 +115,18 @@ public class RestServices {
         return Response.status(200).build();
     }
 
+    @GET
+    @Path("actes/{id}")
+    @Produces("application/json")
+    public Acte getActes(@PathParam("id") int id) {
+        return serv.getActesById(id);
+    }
+    
+    @GET
+    @Path("actes")
+    @Produces("application/json")
+    public List<Acte> getAllActes(){
+        return serv.getAllActes();
+    }
    
 }

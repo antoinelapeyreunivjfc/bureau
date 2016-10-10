@@ -164,4 +164,17 @@ public class Services {
         em.getTransaction().commit();
         
     }
+    
+    public Acte getActesById(int id) {
+       
+	Acte res = em.find( Acte.class, id );
+      
+        return res;
+    }
+    
+    public List<Acte> getAllActes() {
+	TypedQuery<Acte> query = em.createQuery("SELECT a FROM Acte a", Acte.class);
+        List<Acte> res = query.getResultList();
+        return res;
+    }
 }
