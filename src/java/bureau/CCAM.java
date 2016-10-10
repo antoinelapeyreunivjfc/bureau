@@ -21,11 +21,7 @@ public class CCAM implements Serializable {
     @Column
     private String cout;
     
-    public CCAM(int code_CCAM, String libelle, String cout){
-        this.code_CCAM=code_CCAM;
-        this.libelle=libelle;
-        this.cout=cout;
-    }
+   
 
     public int getCode_CCAM() {
         return code_CCAM;

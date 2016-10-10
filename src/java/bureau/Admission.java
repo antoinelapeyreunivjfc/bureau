@@ -31,12 +31,6 @@ public class Admission implements Serializable {
  
 List liste_actes=new ArrayList() ;
 
-    public Admission(String IEP, String nom_patient, String prenom_patient, String IPP_Patient) {
-        this.IEP = IEP;
-        this.nom_patient = nom_patient;
-        this.prenom_patient = prenom_patient;
-        this.IPP_Patient = IPP_Patient;
-    }
 
     public String getIEP() {
         return IEP;
