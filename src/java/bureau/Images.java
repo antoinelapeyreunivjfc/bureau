@@ -21,17 +21,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Images {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id_image;
+    private int id_image;
     
    @Column
    private String file_image;
 
-    public Images(String id_image, String file_image) {
+    public Images(int id_image, String file_image) {
         this.id_image = id_image;
         this.file_image = file_image;
     }
 
-    public String getId_image() {
+    public int getId_image() {
         return id_image;
     }
 
@@ -39,7 +39,7 @@ public class Images {
         return file_image;
     }
 
-    public void setId_image(String id_image) {
+    public void setId_image(int id_image) {
         this.id_image = id_image;
     }
 

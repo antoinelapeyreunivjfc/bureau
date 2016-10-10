@@ -243,7 +243,7 @@ public class Services {
         em.getTransaction().commit();
         return ad;
     }
-     public Admission newAdmission(String IEP, String nom_patient,String prenom_patient,String IPP_patient, List<Acte> actes) {
+     public Admission newAdmission(int IEP, String nom_patient,String prenom_patient,String IPP_patient, List<Acte> actes) {
         Admission ad = new Admission();
 	em.getTransaction( ).begin( );
         ad.setIEP(IEP);
