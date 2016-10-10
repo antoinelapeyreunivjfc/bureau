@@ -59,8 +59,8 @@ public class bureauTest {
     @Test
     public void clean() {
         Services serv = new Services(DatabaseUtils.fact());
-        serv.deleteAllBoites();
-        serv.deleteAllCrayons();
+        //serv.deleteAllBoites();
+        //serv.deleteAllCrayons();
         serv.deleteAllActes();
         //List<Crayon> res = serv.getAllCrayons();
         //assert(res.isEmpty());
