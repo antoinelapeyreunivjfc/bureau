@@ -130,13 +130,21 @@ public class RestServices {
     }
     
     @POST
-    @Path("acte")
+    @Path("actes")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("application/json")
     public Acte newActe(Acte ac) {
         serv.newActe(ac);
         System.out.println("id:"+ac.getId_acte());
         return ac;
+    }
+    
+    @POST
+    @Path("actes/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editActe(Acte ac) {
+        serv.editActe(ac);
+        return Response.status(200).entity(ac).build();
     }
    
 }

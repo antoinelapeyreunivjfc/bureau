@@ -183,4 +183,12 @@ public class Services {
         em.persist(ac);
         em.getTransaction().commit();
     }
+    
+    public void editActe(Acte ac) {
+      
+	em.getTransaction( ).begin( );
+        em.merge(ac);
+        em.getTransaction().commit();
+     
+    }
 }
