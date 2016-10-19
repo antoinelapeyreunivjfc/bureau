@@ -57,14 +57,16 @@ public class bureauTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     
-    @Test
+    
     public void clean() {
         Services serv = new Services(DatabaseUtils.fact());
         //serv.deleteAllBoites();
         //serv.deleteAllCrayons();
-        serv.deleteAllActes();
         //List<Crayon> res = serv.getAllCrayons();
         //assert(res.isEmpty());
+        serv.deleteAllActes();
+        List<Acte> res = serv.getAllActes();
+        assert(res.isEmpty());
     }
     
         
@@ -153,7 +155,6 @@ public class bureauTest {
       
         List<Acte> res2 = serv.getAllActes();
         System.out.println(res2.size());
-        
     }
     
     @Test
