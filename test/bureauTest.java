@@ -151,14 +151,18 @@ public class bureauTest {
     public void acte() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
-        Acte ac = serv.newActe("10/10/2016", "10h54", "456", "12", "48", "55", null);
-        assertNotNull(ac); 
+        Acte ac1 = serv.newActe("10/10/2016", "10h54", "456", "12", "48", "55", null);
+        Acte ac2 = serv.newActe("19/10/2016", "11h51", "456", "12", "48", "55", null);
+        assertNotNull(ac1); 
+        assertNotNull(ac2); 
         
-        Acte res = serv.getActesById(ac.getId_acte());
-        System.out.println(res.getDate() + " " + res.getHeure());
+        Acte res1 = serv.getActesById(ac1.getId_acte());
+        System.out.println(res1.getDate() + " " + res1.getHeure());
+        Acte res2 = serv.getActesById(ac2.getId_acte());
+        System.out.println(res2.getDate() + " " + res2.getHeure());
       
-        List<Acte> res2 = serv.getAllActes();
-        System.out.println(res2.size());
+        List<Acte> res3 = serv.getAllActes();
+        System.out.println(res3.size());
     }
     
    @Test
