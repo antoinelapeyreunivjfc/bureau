@@ -28,7 +28,7 @@ public class Admission implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IEP;
+    private String IEP;
    
     @Column
     String nom_patient;
@@ -43,7 +43,7 @@ public class Admission implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     List<Acte> actes;
 
-    public int getIEP() {
+    public String getIEP() {
         return IEP;
     }
 
@@ -63,7 +63,7 @@ public class Admission implements Serializable {
         return actes;
     }
 
-    public void setIEP(int IEP) {
+    public void setIEP(String IEP) {
         this.IEP = IEP;
     }
 

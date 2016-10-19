@@ -9,6 +9,7 @@ import bureau.Crayon;
 import bureau.DatabaseUtils;
 import bureau.Services;
 import bureau.Acte;
+import bureau.Admission;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -152,6 +153,20 @@ public class bureauTest {
       
         List<Acte> res2 = serv.getAllActes();
         System.out.println(res2.size());
+        
+    }
+    
+    @Test
+    public void admission() {
+        clean();
+        Services serv = new Services(DatabaseUtils.fact());
+        Admission ad = serv.newAdmission("18", "George", "Jacque", "12", null);
+        assertNotNull(ad); 
+        
+        Admission res = serv.getAdmissionByIEP(ad.getIEP());
+        System.out.println(res.getNom_patient()+ ""+ res.getPrenom_patient());
+      
+        
         
     }
 }
