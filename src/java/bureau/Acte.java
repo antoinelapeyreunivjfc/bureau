@@ -39,16 +39,17 @@ public class Acte implements Serializable {
     String heure;
     
     @Column
-    int IEP;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    Admission admission;
     
     @Column
-    int code_UF;
+    UF uf;
     
     @Column
-    int id_modalite;
+    Modalite modalite;
     
     @Column
-    int code_CCAM;
+    CCAM ccam;
     
     @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -78,36 +79,36 @@ public class Acte implements Serializable {
         this.heure = heure;
     }
 
-    public int getIEP() {
-        return IEP;
+    public Admission getAdmission() {
+        return admission;
     }
 
-    public void setIEP(int IEP) {
-        this.IEP = IEP;
+    public void setAdmission(Admission admission) {
+        this.admission = admission;
     }
 
-    public int getCode_UF() {
-        return code_UF;
+    public UF getUF() {
+        return uf;
     }
 
-    public void setCode_UF(int code_UF) {
-        this.code_UF = code_UF;
+    public void setUF(UF uf) {
+        this.uf = uf;
     }
 
-    public int getId_modalite() {
-        return id_modalite;
+    public Modalite getModalite() {
+        return modalite;
     }
 
-    public void setId_modalite(int id_modalite) {
-        this.id_modalite = id_modalite;
+    public void setModalite(Modalite modalite) {
+        this.modalite = modalite;
     }
 
-    public int getCode_CCAM() {
-        return code_CCAM;
+    public CCAM getCCAM() {
+        return ccam;
     }
 
-    public void setCode_CCAM(int code_CCAM) {
-        this.code_CCAM = code_CCAM;
+    public void setCCAM(CCAM ccam) {
+        this.ccam = ccam;
     }
 
     public List<Images> getImages() {
