@@ -64,9 +64,13 @@ public class bureauTest {
         //serv.deleteAllCrayons();
         //List<Crayon> res = serv.getAllCrayons();
         //assert(res.isEmpty());
+      serv.deleteAllAdmission();
+       List<Admission> res1=serv.getAllAdmission();
+       assert(res1.isEmpty());
         serv.deleteAllActes();
         List<Acte> res = serv.getAllActes();
         assert(res.isEmpty());
+        
     }
     
         
@@ -157,17 +161,19 @@ public class bureauTest {
         System.out.println(res2.size());
     }
     
-    @Test
+   @Test
     public void admission() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
-        Admission ad = serv.newAdmission("18", "George", "Jacque", "12", null);
+        Admission ad = serv.newAdmission("George", "Jacque", "12", null);
         assertNotNull(ad); 
         
         Admission res = serv.getAdmissionByIEP(ad.getIEP());
-        System.out.println(res.getNom_patient()+ ""+ res.getPrenom_patient());
+       
+       System.out.println(res.getNom_patient()+ ""+ res.getPrenom_patient());
       
         
         
     }
+    
 }

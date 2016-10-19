@@ -156,7 +156,7 @@ public class RestServices {
    @GET
     @Path("admission/{IEP}")
     @Produces("application/json")
-    public Admission getAdmission(@PathParam("IEP") String IEP) {
+    public Admission getAdmission(@PathParam("IEP") int IEP) {
         return serv.getAdmissionByIEP(IEP);   }
     
     @GET

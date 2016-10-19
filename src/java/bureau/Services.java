@@ -224,7 +224,7 @@ public class Services {
         em.getTransaction().commit();
         
     }
-     public Admission getAdmissionByIEP(String IEP) {
+     public Admission getAdmissionByIEP(int IEP) {
        
 	Admission res = em.find( Admission.class, IEP );
       
@@ -243,10 +243,9 @@ public class Services {
         em.getTransaction().commit();
         return ad;
     }
-     public Admission newAdmission(String IEP, String nom_patient,String prenom_patient,String IPP_patient, List<Acte> actes) {
+     public Admission newAdmission(String nom_patient,String prenom_patient,String IPP_patient, List<Acte> actes) {
         Admission ad = new Admission();
 	em.getTransaction( ).begin( );
-        ad.setIEP(IEP);
         ad.setNom_patient(nom_patient);
         ad.setPrenom_patient(prenom_patient);
         ad.setIPP_patient(IPP_patient);
