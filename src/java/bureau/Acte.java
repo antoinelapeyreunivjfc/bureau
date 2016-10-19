@@ -39,16 +39,16 @@ public class Acte implements Serializable {
     String heure;
     
     @Column
-    String IEP;
+    int IEP;
     
     @Column
-    String code_UF;
+    int code_UF;
     
     @Column
-    String id_modalite;
+    int id_modalite;
     
     @Column
-    String code_CCAM;
+    int code_CCAM;
     
     @Column
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -78,35 +78,35 @@ public class Acte implements Serializable {
         this.heure = heure;
     }
 
-    public String getIEP() {
+    public int getIEP() {
         return IEP;
     }
 
-    public void setIEP(String IEP) {
+    public void setIEP(int IEP) {
         this.IEP = IEP;
     }
 
-    public String getCode_UF() {
+    public int getCode_UF() {
         return code_UF;
     }
 
-    public void setCode_UF(String code_UF) {
+    public void setCode_UF(int code_UF) {
         this.code_UF = code_UF;
     }
 
-    public String getId_modalite() {
+    public int getId_modalite() {
         return id_modalite;
     }
 
-    public void setId_modalite(String id_modalite) {
+    public void setId_modalite(int id_modalite) {
         this.id_modalite = id_modalite;
     }
 
-    public String getCode_CCAM() {
+    public int getCode_CCAM() {
         return code_CCAM;
     }
 
-    public void setCode_CCAM(String code_CCAM) {
+    public void setCode_CCAM(int code_CCAM) {
         this.code_CCAM = code_CCAM;
     }
 
