@@ -357,9 +357,8 @@ public class Services {
         em.getTransaction().commit();
     }
     
-    public Modalite newModalite(int id_modalite, String type) {
+    public Modalite newModalite(String type) {
         Modalite mod = new Modalite();
-        mod.setId_modalite(id_modalite);
         mod.setType(type);
      
 	em.getTransaction( ).begin( );

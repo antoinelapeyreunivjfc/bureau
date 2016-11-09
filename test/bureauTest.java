@@ -156,7 +156,7 @@ public class bureauTest {
         Services serv = new Services(DatabaseUtils.fact());
         Admission ad1 = serv.newAdmission("Jean", "Jacques", "12", null);
         UF uf1 = serv.newUF(10, "Chirurgie");
-        Modalite mod1 = serv.newModalite(4, "Scanner");
+        Modalite mod1 = serv.newModalite("Scanner");
         CCAM ccam1 = serv.newCCAM(3, "quelque chose", "autre chose");
         Acte ac1 = serv.newActe("10/10/2016", "10h54", ad1, uf1, mod1, ccam1, null);
         //Acte ac2 = serv.newActe("19/10/2016", "11h51", "456", "12", "48", "55", null);
@@ -165,6 +165,7 @@ public class bureauTest {
         
         Acte res1 = serv.getActesById(ac1.getId_acte());
         System.out.println(res1.getDate() + " " + res1.getHeure());
+        System.out.println("C'EST LÀ : " + res1.getAdmission().getNom_patient());
         /*Acte res2 = serv.getActesById(ac2.getId_acte());
         System.out.println(res2.getDate() + " " + res2.getHeure());*/
       
