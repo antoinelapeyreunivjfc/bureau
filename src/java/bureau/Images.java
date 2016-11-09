@@ -23,8 +23,8 @@ public class Images {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_image;
     
-   @Column
-   private String file_image;
+    @Column
+    private String file_image;
 
     public Images(int id_image, String file_image) {
         this.id_image = id_image;

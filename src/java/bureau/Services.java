@@ -184,14 +184,14 @@ public class Services {
         em.getTransaction().commit();
     }
     
-    public Acte newActe(String date, String heure, String IEP, String code_UF, String id_modalite, String code_CCAM, List<Images> images) {
+    public Acte newActe(String date, String heure, Admission admission, UF UF, Modalite modalite, CCAM CCAM, List<Images> images) {
         Acte ac = new Acte();
         ac.setDate(date);
         ac.setHeure(heure);
-        ac.setIEP(IEP);
-        ac.setCode_UF(code_UF);
-        ac.setId_modalite(id_modalite);
-        ac.setCode_CCAM(code_CCAM);
+        ac.setAdmission(admission);
+        ac.setUF(UF);
+        ac.setModalite(modalite);
+        ac.setCCAM(CCAM);
         ac.setImages(images);
      
 	em.getTransaction( ).begin( );
