@@ -22,11 +22,6 @@ public class UF implements Serializable {
     private int code_UF;
     @Column
     private String nom_UF;
-    
-    public UF(int code_UF, String nom_UF){
-        this.code_UF=code_UF;
-        this.nom_UF=nom_UF;
-    }
 
     public int getCode_UF() {
         return code_UF;

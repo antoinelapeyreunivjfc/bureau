@@ -25,11 +25,6 @@ public class Modalite implements Serializable {
     private int id_modalite;
     @Column
     private String type;
-    
-    public Modalite(int id_modalite, String type){
-        this.id_modalite=id_modalite;
-        this.type=type;
-}
 
     public int getId_modalite() {
         return id_modalite;

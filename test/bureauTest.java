@@ -10,6 +10,9 @@ import bureau.DatabaseUtils;
 import bureau.Services;
 import bureau.Acte;
 import bureau.Admission;
+import bureau.CCAM;
+import bureau.Modalite;
+import bureau.UF;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -151,21 +154,25 @@ public class bureauTest {
     public void acte() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
-        Acte ac1 = serv.newActe("10/10/2016", "10h54", "456", "12", "48", "55", null);
-        Acte ac2 = serv.newActe("19/10/2016", "11h51", "456", "12", "48", "55", null);
+        Admission ad1 = serv.newAdmission("Jean", "Jacques", "12", null);
+        UF uf1 = serv.newUF(10, "Chirurgie");
+        Modalite mod1 = serv.newModalite(4, "Scanner");
+        CCAM ccam1 = serv.newCCAM(3, "quelque chose", "autre chose");
+        Acte ac1 = serv.newActe("10/10/2016", "10h54", ad1, uf1, mod1, ccam1, null);
+        //Acte ac2 = serv.newActe("19/10/2016", "11h51", "456", "12", "48", "55", null);
         assertNotNull(ac1); 
-        assertNotNull(ac2); 
+        //assertNotNull(ac2); 
         
         Acte res1 = serv.getActesById(ac1.getId_acte());
         System.out.println(res1.getDate() + " " + res1.getHeure());
-        Acte res2 = serv.getActesById(ac2.getId_acte());
-        System.out.println(res2.getDate() + " " + res2.getHeure());
+        /*Acte res2 = serv.getActesById(ac2.getId_acte());
+        System.out.println(res2.getDate() + " " + res2.getHeure());*/
       
         List<Acte> res3 = serv.getAllActes();
         System.out.println(res3.size());
     }
     
-   @Test
+   /*@Test
     public void admission() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
@@ -178,6 +185,6 @@ public class bureauTest {
       
         
         
-    }
+    }*/
     
 }
