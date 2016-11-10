@@ -135,7 +135,7 @@ public class RestServices {
     @Produces("application/json")
     public Acte newActe(Acte ac) {
         serv.newActe(ac);
-        System.out.println("id:"+ac.getId_acte());
+        System.out.println("id:"+ac.getId());
         return ac;
     }
     
