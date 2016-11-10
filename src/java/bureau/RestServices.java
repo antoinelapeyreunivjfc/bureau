@@ -270,4 +270,82 @@ public class RestServices {
         return Response.status(200).build();
     }
     
+    @GET
+    @Path("modalite/{id}")
+    @Produces("application/json")
+    public Modalite getModalite(@PathParam("id") int id) {
+        return serv.getModaliteById(id);
+    }
+    
+    @GET
+    @Path("modalite")
+    @Produces("application/json")
+    public List<Modalite> getAllModalites(){
+        return serv.getAllModalites();
+    }
+    
+    @POST
+    @Path("modalite")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public Modalite newModalite(Modalite mod) {
+        serv.newModalite(mod);
+        System.out.println("id:"+mod.getId_modalite());
+        return mod;
+    }
+    
+    @POST
+    @Path("modalite/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editModalite(Modalite mod) {
+        serv.editModalite(mod);
+        return Response.status(200).entity(mod).build();
+    }
+    
+    @DELETE
+    @Path("modalite/{id}")
+    public Response removeModalite(@PathParam("id") int id) {
+        serv.removeModalite(id);
+        return Response.status(200).build();
+    }
+    
+    @GET
+    @Path("uf/{id}")
+    @Produces("application/json")
+    public UF getUF(@PathParam("id") int id) {
+        return serv.getUFByCode(id);
+    }
+    
+    @GET
+    @Path("uf")
+    @Produces("application/json")
+    public List<UF> getAllUF(){
+        return serv.getAllUF();
+    }
+    
+    @POST
+    @Path("uf")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public UF newUF(UF uf) {
+        serv.newUF(uf);
+        System.out.println("id:"+uf.getCode_UF());
+        return uf;
+    }
+    
+    @POST
+    @Path("uf/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editUF(UF uf) {
+        serv.editUF(uf);
+        return Response.status(200).entity(uf).build();
+    }
+    
+    @DELETE
+    @Path("uf/{id}")
+    public Response removeUF(@PathParam("id") int id) {
+        serv.removeUF(id);
+        return Response.status(200).build();
+    }
+    
 }
