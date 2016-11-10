@@ -91,31 +91,31 @@ angular.module('monApp')
             function (Actes) {
                 this.actes = Actes.query();
                 this.delete = function (ac) {
-                    // appel DELETE asynchrone au service web sur /crayons/{id}
-                    //cr.$delete();
+                    // appel DELETE asynchrone au service web sur /actes/{id}
+                    //ac.$delete();
                     Actes.delete(ac);
-                    // remet à jour le tableau des crayons en suprimant l'élément effacé
+                    // remet à jour le tableau des actes en suprimant l'élément effacé
                     this.actes.splice(this.actes.indexOf(ac), 1);
                 };
             }
         ])
 
-        .controller('CrayonNewController', ['Crayons',
-            function (Crayons) {
-                this.cr = new Crayons();
+        .controller('ActesNewController', ['Actes',
+            function (Actes) {
+                this.ac = new Actes();
                 this.update = function () {
-                    // appel POST asynchrone au service web sur /crayons
-                    this.cr.$save();
+                    // appel POST asynchrone au service web sur /actes
+                    this.ac.$save();
                 };
             }])
 
 
-        .controller('CrayonEditController', ['$routeParams', 'Crayons', '$location',
-            function ($routeParams, Crayons, $location) {
-                this.cr = Crayons.get({id: $routeParams.id});
+        .controller('ActesEditController', ['$routeParams', 'Actes', '$location',
+            function ($routeParams, Actes, $location) {
+                this.ac = Actes.get({id: $routeParams.id});
                 this.update = function () {
-                    // appel POST asynchrone au service web sur /crayons/{id} 
-                    this.cr.$save();
+                    // appel POST asynchrone au service web sur /actes/{id} 
+                    this.ac.$save();
                     $location.path("/")
                 };
             }
