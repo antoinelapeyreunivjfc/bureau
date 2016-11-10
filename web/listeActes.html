@@ -6,9 +6,11 @@
     <tr>
         <th> Id </th>
         <th> Date </th>
+        <th> Heure </th>
     <tr ng-repeat='ac in ctrl.actes'>
         <td> {{ ac.id_acte }} </td>
         <td> {{ ac.date }} </td>
+        <td> {{ ac.heure }} </td>
         <td> <a ng-href="#/crayon/edit/{{cr.id}}"/> Edit </a>
         <td> <input type="button" value="delete" ng-click="ctrl.delete(cr)"/> 
     </tr>
