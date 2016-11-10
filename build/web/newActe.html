@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+
+<form novalidate class="simple-form">
+    <h3> Définition du nouvel acte </h3>
+   
+    Date: <input type="text" ng-model="ctrl.ac.date" /><br />
+    <input type="submit" ng-click="ctrl.update()" value="Save" />
+    
+    <div ng-show="ctrl.ac.id">
+        Création d'un nouveel acte d'identifiant {{ ctrl.ac.id }} effectuée.
+    </div>
+    
+    <br/>
+    
+    <a href="#/">Retour</a>
+</form>
