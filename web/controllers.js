@@ -128,7 +128,7 @@ angular.module('monApp')
                     //cr.$delete();
                     Modalites.delete(mo);
                     // remet à jour le tableau des crayons en suprimant l'élément effacé
-                    this.modalites.splice(this.crayons.indexOf(mo), 1);
+                    this.modalites.splice(this.modalites.indexOf(mo), 1);
                 };
             }
         ])
