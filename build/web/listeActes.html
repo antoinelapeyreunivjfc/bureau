@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<h3>Liste des actes :</h3> 
+
+<table>
+    <tr>
+        <th> Id </th>
+        <th> Date </th>
+    <tr ng-repeat='ac in ctrl.actes'>
+        <td> {{ ac.id_acte }} </td>
+        <td> {{ ac.date }} </td>
+        <td> <a ng-href="#/crayon/edit/{{cr.id}}"/> Edit </a>
+        <td> <input type="button" value="delete" ng-click="ctrl.delete(cr)"/> 
+    </tr>
+ 
+    
+</table>
+   
+<a ng-href="#/crayon/new"/> Nouveau crayon </a>
+
+<br/>
+
+<a href="#/boites">Liste des boites</a>

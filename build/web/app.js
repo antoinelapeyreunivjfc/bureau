@@ -32,6 +32,10 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "BoiteNewController as ctrl",
                     templateUrl: 'newBoite.html'
                 })
+                .when('/actes', {
+                    controller: "BoiteNewController as ctrl",
+                    templateUrl: 'newBoite.html'
+                })
                 .otherwise({redirectTo: '/crayons'});
     }]);
 
