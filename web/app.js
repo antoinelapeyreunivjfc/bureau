@@ -44,6 +44,18 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ActeEditController as ctrl",
                     templateUrl: 'editActe.html'
                 })
+                .when('/modalites/new', {
+                    controller: "ModalitesNewController as ctrl",
+                    templateUrl: 'newModalite.html'
+                })
+                 .when('/modalite/edit/:id', {
+                    controller: "ModaliteEditController as ctrl",
+                    templateUrl: 'editModalite.html'
+                })
+                .when('/modalite/new', {
+                    controller: "ModaliteNewController as ctrl",
+                    templateUrl: 'newModalite.html'
+                })
                 .otherwise({redirectTo: '/crayons'});
     }]);
 
