@@ -20,3 +20,9 @@ angular.module('monApp').factory('Actes', ['$resource', function($resource) {
     return $resource('/bureau/webresources/generic/actes/:id', { id : '@id_acte'} );
     
 }]);
+angular.module('monApp').factory('Modalites', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/modalites/:id', { id : '@id_modalite'} );
+    
+}]);
