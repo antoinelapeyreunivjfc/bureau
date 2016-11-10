@@ -120,3 +120,36 @@ angular.module('monApp')
                 };
             }
         ])
+        
+        
+        
+        .controller('ModaliteController', ['Modalites',
+            function (Modalites) {
+                this.modalites = Modalites.query();
+                this.delete = function (mo) {
+                    // appel DELETE asynchrone au service web sur /modalites/{id}
+                    //cr.$delete();
+                    Modalites.delete(mo);
+                    // remet à jour le tableau des crayons en suprimant l'élément effacé
+                    this.modalites.splice(this.modalites.indexOf(mo), 1);
+                };
+            }
+        ])
+        .controller('ModaliteNewController', ['Modalites',
+            function (Modalites) {
+                this.mo = new Modalites();
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /crayons
+                    this.mo.$save();
+                };
+            }])
+        .controller('ModaliteEditController', ['$routeParams', 'Modalites', '$location',
+            function ($routeParams, Modalites, $location) {
+                this.mo = Modalites.get({id: $routeParams.id});
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /modalites/{id} 
+                    this.mo.$save();
+                    $location.path("/")
+                };
+            }
+        ])
