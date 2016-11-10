@@ -120,10 +120,7 @@ angular.module('monApp')
                 };
             }
         ])
-        
-        
-        
-        .controller('ModaliteController', ['Modalites',
+          .controller('ModaliteController', ['Modalites',
             function (Modalites) {
                 this.modalites = Modalites.query();
                 this.delete = function (mo) {

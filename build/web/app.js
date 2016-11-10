@@ -40,10 +40,6 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ActesNewController as ctrl",
                     templateUrl: 'newActe.html'
                 })
-                .when('/modalites/new', {
-                    controller: "ModaliteNewController as ctrl",
-                    templateUrl: 'newModalite.html'
-                })
                 .otherwise({redirectTo: '/crayons'});
     }]);
 
