@@ -30,7 +30,7 @@ public class Acte implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_acte;
+    private int id;
     
     @Column
     String date;
@@ -55,12 +55,12 @@ public class Acte implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     List<Images> images;
 
-    public int getId_acte() {
-        return id_acte;
+    public int getId() {
+        return id;
     }
 
-    public void setId_acte(int id_acte) {
-        this.id_acte = id_acte;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDate() {

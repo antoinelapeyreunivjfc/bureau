@@ -17,7 +17,7 @@ angular.module('monApp').factory('Boites', ['$resource', function($resource) {
 angular.module('monApp').factory('Actes', ['$resource', function($resource) {
         
     //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
-    return $resource('/bureau/webresources/generic/actes/:id', { id : '@id_acte'} );
+    return $resource('/bureau/webresources/generic/actes/:id', { id : '@id'} );
     
 }]);
 angular.module('monApp').factory('Modalites', ['$resource', function($resource) {
