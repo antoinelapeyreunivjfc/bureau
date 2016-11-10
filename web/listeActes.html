@@ -11,8 +11,8 @@
         <td> {{ ac.id_acte }} </td>
         <td> {{ ac.date }} </td>
         <td> {{ ac.heure }} </td>
-        <td> <a ng-href="#/crayon/edit/{{cr.id}}"/> Edit </a>
-        <td> <input type="button" value="delete" ng-click="ctrl.delete(cr)"/> 
+        <td> <a ng-href="#/acte/edit/{{ac.id_acte}}"/> Edit </a>
+        <td> <input type="button" value="delete" ng-click="ctrl.delete(ac)"/> 
     </tr>
  
     
@@ -20,8 +20,8 @@
 
 <br/>
    
-<a ng-href="#/actes/new"/> Nouvel acte </a>
+<a ng-href="#/acte/new"/> Nouvel acte </a>
 
 <br/>
 
-<a href="#/boites">Liste des boites</a>
+<a href="#/">Liste des admissions</a>

@@ -2,17 +2,10 @@
 
 
 <form novalidate class="simple-form">
-    <h3> Définition du nouvel acte </h3>
-   
+    <h3> Edition de l'acte d'identifiant {{ ctrl.ac.id_acte }} </h3>
+    
     Date: <input type="text" ng-model="ctrl.ac.date" /><br />
     Heure: <input type="text" ng-model="ctrl.ac.heure" /><br />
     <input type="submit" ng-click="ctrl.update()" value="Save" />
     
-    <div ng-show="ctrl.ac.id">
-        Création d'un nouvel acte d'identifiant {{ ctrl.ac.id }} effectuée.
-    </div>
-    
-    <br/>
-    
-    <a href="#/">Retour</a>
 </form>

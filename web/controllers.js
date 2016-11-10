@@ -95,12 +95,12 @@ angular.module('monApp')
                     //ac.$delete();
                     Actes.delete(ac);
                     // remet à jour le tableau des actes en suprimant l'élément effacé
-                    //this.actes.splice(this.actes.indexOf(ac), 1);
+                    this.actes.splice(this.actes.indexOf(ac), 1);
                 };
             }
         ])
 
-        .controller('ActesNewController', ['Actes',
+        .controller('ActeNewController', ['Actes',
             function (Actes) {
                 this.ac = new Actes();
                 this.update = function () {
@@ -110,13 +110,13 @@ angular.module('monApp')
             }])
 
 
-        .controller('ActesEditController', ['$routeParams', 'Actes', '$location',
+        .controller('ActeEditController', ['$routeParams', 'Actes', '$location',
             function ($routeParams, Actes, $location) {
                 this.ac = Actes.get({id: $routeParams.id});
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes/{id} 
                     this.ac.$save();
-                    $location.path("/")
+                    $location.path("/actes")
                 };
             }
         ])
