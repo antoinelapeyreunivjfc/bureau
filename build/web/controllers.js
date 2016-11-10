@@ -95,7 +95,7 @@ angular.module('monApp')
                     //ac.$delete();
                     Actes.delete(ac);
                     // remet à jour le tableau des actes en suprimant l'élément effacé
-                    this.actes.splice(this.actes.indexOf(ac), 1);
+                    //this.actes.splice(this.actes.indexOf(ac), 1);
                 };
             }
         ])

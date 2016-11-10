@@ -13,3 +13,10 @@ angular.module('monApp').factory('Boites', ['$resource', function($resource) {
     return $resource('/bureau/webresources/generic/boites/:id', { id : '@id'} );
     
 }]);
+
+angular.module('monApp').factory('Actes', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/actes/:id', { id : '@id'} );
+    
+}]);
