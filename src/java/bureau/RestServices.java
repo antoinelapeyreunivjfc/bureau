@@ -153,7 +153,8 @@ public class RestServices {
         serv.removeActe(id);
         return Response.status(200).build();
     }
-   @GET
+    
+    @GET
     @Path("admission/{IEP}")
     @Produces("application/json")
     public Admission getAdmission(@PathParam("IEP") int IEP) {
@@ -188,6 +189,45 @@ public class RestServices {
     @Path("admission/{IEP}")
     public Response removeAdmission(@PathParam("IEP") int IEP) {
         serv.removeAdmission(IEP);
+        return Response.status(200).build();
+    }
+    
+    @GET
+    @Path("ccam/{id}")
+    @Produces("application/json")
+    public CCAM getCCAM(@PathParam("id") int id) {
+        return serv.getCCAMByCode(id);
+    }
+    
+    @GET
+    @Path("ccam")
+    @Produces("application/json")
+    public List<CCAM> getAllCCAM(){
+        return serv.getAllCCAM();
+    }
+    
+    @POST
+    @Path("ccam")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public CCAM newCCAM(CCAM ccam) {
+        serv.newCCAM(ccam);
+        System.out.println("id:"+ccam.getCode_CCAM());
+        return ccam;
+    }
+    
+    @POST
+    @Path("ccam/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editCCAM(CCAM ccam) {
+        serv.editCCAM(ccam);
+        return Response.status(200).entity(ccam).build();
+    }
+    
+    @DELETE
+    @Path("ccam/{id}")
+    public Response removeCCAM(@PathParam("id") int id) {
+        serv.removeCCAM(id);
         return Response.status(200).build();
     }
     

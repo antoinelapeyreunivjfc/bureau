@@ -160,8 +160,8 @@ public class bureauTest {
         CCAM ccam1 = serv.newCCAM(3, "quelque chose", "autre chose");
         Acte ac1 = serv.newActe("10/10/2016", "10h54", ad1, uf1, mod1, ccam1, null);
         //Acte ac2 = serv.newActe("19/10/2016", "11h51", "456", "12", "48", "55", null);
-        assertNotNull(ac1); 
-        //assertNotNull(ac2); 
+        assertNotNull(ac1);
+        //assertNotNull(ac2);
         
         Acte res1 = serv.getActesById(ac1.getId_acte());
         System.out.println(res1.getDate() + " " + res1.getHeure());
