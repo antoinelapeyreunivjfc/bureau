@@ -231,4 +231,43 @@ public class RestServices {
         return Response.status(200).build();
     }
     
+    @GET
+    @Path("images/{id}")
+    @Produces("application/json")
+    public Images getImage(@PathParam("id") int id) {
+        return serv.getImageById(id);
+    }
+    
+    @GET
+    @Path("images")
+    @Produces("application/json")
+    public List<Images> getAllImages(){
+        return serv.getAllImages();
+    }
+    
+    @POST
+    @Path("images")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    public Images newImage(Images im) {
+        serv.newImage(im);
+        System.out.println("id:"+im.getId_image());
+        return im;
+    }
+    
+    @POST
+    @Path("images/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response editImage(Images im) {
+        serv.editImage(im);
+        return Response.status(200).entity(im).build();
+    }
+    
+    @DELETE
+    @Path("images/{id}")
+    public Response removeImage(@PathParam("id") int id) {
+        serv.removeImage(id);
+        return Response.status(200).build();
+    }
+    
 }

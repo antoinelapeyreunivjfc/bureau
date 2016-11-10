@@ -440,10 +440,66 @@ public class Services {
         em.getTransaction().commit();
        
     }
-     public void deleteAllCCAM() {
+    
+    public void deleteAllCCAM() {
       
         em.getTransaction( ).begin( );
         em.createQuery("DELETE FROM CCAM").executeUpdate();
+        em.getTransaction().commit();
+        
+    }
+    
+    public Images getImageById(int id) {
+       
+	Images res = em.find( Images.class, id );
+      
+        return res;
+    }
+    
+    public List<Images> getAllImages() {
+	TypedQuery<Images> query = em.createQuery("SELECT i FROM Images i", Images.class);
+        List<Images> res = query.getResultList();
+        return res;
+    }
+    
+    public void newImage(Images im) {
+	em.getTransaction( ).begin( );
+        em.persist(im);
+        em.getTransaction().commit();
+    }
+    
+    public Images newImage(String file) {
+        Images im = new Images();
+        im.setFile_image(file);
+     
+	em.getTransaction( ).begin( );
+        em.persist(im);
+        em.getTransaction().commit();
+      
+        return im;
+    }
+    
+    public void editImage(Images im) {
+      
+	em.getTransaction( ).begin( );
+        em.merge(im);
+        em.getTransaction().commit();
+     
+    }
+    
+    public void removeImage(int id) {
+       
+        Images im = em.find( Images.class, id );
+	em.getTransaction( ).begin( );
+        em.remove(im);
+        em.getTransaction().commit();
+       
+    }
+    
+    public void deleteAllImages() {
+      
+        em.getTransaction( ).begin( );
+        em.createQuery("DELETE FROM Images").executeUpdate();
         em.getTransaction().commit();
         
     }

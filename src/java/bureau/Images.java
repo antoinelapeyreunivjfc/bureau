@@ -26,11 +26,6 @@ public class Images {
     @Column
     private String file_image;
 
-    public Images(int id_image, String file_image) {
-        this.id_image = id_image;
-        this.file_image = file_image;
-    }
-
     public int getId_image() {
         return id_image;
     }
