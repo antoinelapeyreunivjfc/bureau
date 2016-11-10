@@ -66,27 +66,27 @@ angular.module('monApp')
                 // paramètre ?type="sansboites" qui lui dit de faire cela. 
                 // Or tous les paramètres que l'on passe à la méthode .query() ci-dessous sont ajoutés à l'URL 
                 // sous la forme ?prop1=val1&prop2=val2, d'où la syntaxe utilisée 
-                self.crayons =  Crayons.query({type: "sansboites"}); 
+                self.crayons = Crayons.query({type: "sansboites"});
                 self.update = function () {
                     // ajoute le crayon à la liste des crayons de la boite
                     self.b.crayons.push(self.crayonSelect);
                     // supprime le crayon de la liste des crayons affectable
                     self.crayons.splice(self.crayons.indexOf(self.crayonSelect), 1);
-                  
+
                 };
-                self.deleteCrayonFromBoite = function(cr) {
+                self.deleteCrayonFromBoite = function (cr) {
                     // remet à jour le tableau des crayons de la boite en suprimant l'élément effacé
                     self.b.crayons.splice(self.b.crayons.indexOf(cr), 1);
                     // et en l'ajoutant à la liste des crayons disponibles
                     self.crayons.push(cr);
                 }
-                self.apply = function() {
+                self.apply = function () {
                     // on passe la boite au service web pour qu'il la sauve dans la base de données  
                     self.b.$save();
                 }
             }
         ])
-        
+
         .controller('ActesController', ['Actes',
             function (Actes) {
                 this.actes = Actes.query();
@@ -117,6 +117,38 @@ angular.module('monApp')
                     // appel POST asynchrone au service web sur /actes/{id} 
                     this.ac.$save();
                     $location.path("/actes")
+                };
+            }
+        ])
+        .controller('ModaliteController', ['Modalites',
+            function (Modalites) {
+                this.modalites = Modalites.query();
+                this.delete = function (mo) {
+                    // appel DELETE asynchrone au service web sur /crayons/{id}
+                    //cr.$delete();
+                    Modalites.delete(mo);
+                    // remet à jour le tableau des crayons en suprimant l'élément effacé
+                    this.modalites.splice(this.crayons.indexOf(mo), 1);
+                };
+            }
+        ])
+        .controller('ModaliteNewController', ['Modalites',
+            function (Modalites) {
+                this.mo = new Modalites();
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /crayons
+                    this.mo.$save();
+                };
+            }])
+
+
+        .controller('ModaliteEditController', ['$routeParams', 'Modalites', '$location',
+            function ($routeParams, Modalites, $location) {
+                this.mo = Modalites.get({id: $routeParams.id});
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /crayons/{id} 
+                    this.mo.$save();
+                    $location.path("/")
                 };
             }
         ])
