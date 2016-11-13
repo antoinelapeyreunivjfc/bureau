@@ -100,9 +100,13 @@ angular.module('monApp')
             }
         ])
 
-        .controller('ActeNewController', ['Actes',
-            function (Actes) {
+        .controller('ActeNewController', ['Actes', 'Admission', 'UF', 'Modalite', 'CCAM',
+            function (Actes, Admission, UF, Modalite, CCAM) {
                 this.ac = new Actes();
+                this.admission = Admission.query();
+                this.uf = UF.query();
+                this.modalite = Modalite.query();
+                this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes
                     this.ac.$save();
@@ -110,9 +114,13 @@ angular.module('monApp')
             }])
 
 
-        .controller('ActeEditController', ['$routeParams', 'Actes', '$location',
-            function ($routeParams, Actes, $location) {
+        .controller('ActeEditController', ['$routeParams', 'Actes', '$location', 'Admission', 'UF', 'Modalite', 'CCAM',
+            function ($routeParams, Actes, $location, Admission, UF, Modalite, CCAM) {
                 this.ac = Actes.get({id: $routeParams.id});
+                this.admission = Admission.query();
+                this.uf = UF.query();
+                this.modalite = Modalite.query();
+                this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes/{id} 
                     this.ac.$save();
@@ -120,6 +128,41 @@ angular.module('monApp')
                 };
             }
         ])
+        
+        .controller('AdmissionController', ['Admission',
+            function (Admission) {
+                this.admission = Admission.query();
+                this.delete = function (ad) {
+                    // appel DELETE asynchrone au service web sur /actes/{id}
+                    //ac.$delete();
+                    Admission.delete(ad);
+                    // remet à jour le tableau des actes en suprimant l'élément effacé
+                    this.admission.splice(this.admission.indexOf(ad), 1);
+                };
+            }
+        ])
+
+        .controller('AdimissionNewController', ['Admission',
+            function (Admission) {
+                this.ad = new Admission();
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /actes
+                    this.ad.$save();
+                };
+            }])
+
+
+        .controller('AdmissionEditController', ['$routeParams', 'Admission', '$location',
+            function ($routeParams, Admission, $location) {
+                this.ad = Admission.get({id: $routeParams.id});
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /actes/{id} 
+                    this.ad.$save();
+                    $location.path("/admission")
+                };
+            }
+        ])
+        
         .controller('ModaliteController', ['Modalites',
             function (Modalites) {
                 this.modalites = Modalites.query();

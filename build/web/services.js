@@ -20,9 +20,38 @@ angular.module('monApp').factory('Actes', ['$resource', function($resource) {
     return $resource('/bureau/webresources/generic/actes/:id', { id : '@id'} );
     
 }]);
-angular.module('monApp').factory('Modalites', ['$resource', function($resource) {
+
+angular.module('monApp').factory('Admission', ['$resource', function($resource) {
         
     //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
-    return $resource('/bureau/webresources/generic/modalites/:id', { id : '@id_modalite'} );
+    return $resource('/bureau/webresources/generic/admission/:id', { id : '@id'} );
+    
+}]);
+
+angular.module('monApp').factory('UF', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/uf/:id', { id : '@id'} );
+    
+}]);
+
+angular.module('monApp').factory('Modalite', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/modalite/:id', { id : '@id_modalite'} );
+    
+}]);
+
+angular.module('monApp').factory('CCAM', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/ccam/:id', { id : '@id'} );
+    
+}]);
+
+angular.module('monApp').factory('Images', ['$resource', function($resource) {
+        
+    //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
+    return $resource('/bureau/webresources/generic/images/:id', { id : '@id'} );
     
 }]);
