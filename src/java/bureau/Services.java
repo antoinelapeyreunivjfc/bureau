@@ -370,7 +370,7 @@ public class Services {
     
     public void editModalite(Modalite mod) {
       
-	em.getTransaction( ).begin( );
+	em.getTransaction().begin( );
         em.merge(mod);
         em.getTransaction().commit();
      
@@ -379,14 +379,14 @@ public class Services {
     public void removeModalite(int id) {
        
         Modalite mod = em.find( Modalite.class, id );
-	em.getTransaction( ).begin( );
+	em.getTransaction().begin( );
         em.remove(mod);
         em.getTransaction().commit();
        
     }
      public void deleteAllModalites() {
       
-        em.getTransaction( ).begin( );
+        em.getTransaction().begin( );
         em.createQuery("DELETE FROM Modalite").executeUpdate();
         em.getTransaction().commit();
         

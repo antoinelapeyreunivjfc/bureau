@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+
+
+<form novalidate class="simple-form">
+    <h3> Edition de la modalite numero {{ ctrl.mod.id_modalite }} </h3>
+   
+    Intitule: <input type="text" ng-model="ctrl.mod.type" /><br />
+    <input type="submit" ng-click="ctrl.update()" value="Save" />
+</form>

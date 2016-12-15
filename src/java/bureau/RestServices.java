@@ -15,7 +15,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 /**
  * REST Web Service
  *
@@ -271,21 +270,21 @@ public class RestServices {
     }
     
     @GET
-    @Path("modalite/{id}")
+    @Path("modalites/{id}")
     @Produces("application/json")
     public Modalite getModalite(@PathParam("id") int id) {
         return serv.getModaliteById(id);
     }
     
     @GET
-    @Path("modalite")
+    @Path("modalites")
     @Produces("application/json")
     public List<Modalite> getAllModalites(){
         return serv.getAllModalites();
     }
     
     @POST
-    @Path("modalite")
+    @Path("modalites")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("application/json")
     public Modalite newModalite(Modalite mod) {
@@ -295,7 +294,7 @@ public class RestServices {
     }
     
     @POST
-    @Path("modalite/{id}")
+    @Path("modalites/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response editModalite(Modalite mod) {
         serv.editModalite(mod);
@@ -303,7 +302,7 @@ public class RestServices {
     }
     
     @DELETE
-    @Path("modalite/{id}")
+    @Path("modalites/{id}")
     public Response removeModalite(@PathParam("id") int id) {
         serv.removeModalite(id);
         return Response.status(200).build();

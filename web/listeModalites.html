@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<h3>Liste des modalités :</h3> 
+   
+    <table>
+        <tr>
+            <th> Id </th>
+            <th> Type </th>
+        </tr>
+        <tr ng-repeat='mod in ctrl.modalites'>               
+            <td> {{ mod.id_modalite}} </td>
+            <td> {{ mod.type}} </td>
+            <td> <a ng-href="#/modalite/edit/{{mod.id_modalite}}"/> Edit </a>
+            <td> <input type="button" value="delete" ng-click="ctrl.delete(mod)"/> 
+    
+        </tr>  
+    </table>
+   
+ 
+
+<a ng-href="#/modalite/new"/> Nouvelle modalite </a>
+<br/>
+
+   <a href="#/">Retour</a>
+   <br/>

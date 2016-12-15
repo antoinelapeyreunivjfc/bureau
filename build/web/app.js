@@ -36,14 +36,38 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ActesController as ctrl",
                     templateUrl: 'listeActes.html'
                 })
-                .when('/actes/new', {
-                    controller: "ActesNewController as ctrl",
+                .when('/acte/new', {
+                    controller: "ActeNewController as ctrl",
                     templateUrl: 'newActe.html'
                 })
-                .when('/modalites/new', {
+                .when('/acte/edit/:id', {
+                    controller: "ActeEditController as ctrl",
+                    templateUrl: 'editActe.html'
+                })
+                  .when('/modalites', {
+                    controller: "ModalitesController as ctrl",
+                    templateUrl: 'listeModalites.html'
+                })
+                .when('/modalite/new', {
                     controller: "ModaliteNewController as ctrl",
                     templateUrl: 'newModalite.html'
                 })
+                 .when('/modalite/edit/:id', {
+                    controller: "ModaliteEditController as ctrl",
+                    templateUrl: 'editModalite.html'
+                })
+<<<<<<< HEAD
+                .when('/admission', {
+                    controller: "AdmissionController as ctrl",
+                    templateUrl: 'listeAdmission.html'
+                })
+               
+=======
+                .when('/modalite/new', {
+                    controller: "ModaliteNewController as ctrl",
+                    templateUrl: 'newModalite.html'
+                })
+>>>>>>> parent of 2fdb44c... gyutuk
                 .otherwise({redirectTo: '/crayons'});
     }]);
 

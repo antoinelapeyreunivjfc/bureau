@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<h3>Liste des admission :</h3> 
+   
+    <table>
+        <tr>
+            <th> IEP </th>
+            <th> nom_patient </th>
+            <th> prenom_patient </th>
+            <th> IPP_patient </th>
+            
+        <tr ng-repeat='ad in ctrl.admission'>               
+            <td> {{ ad.iep}} </td>
+            <td> {{ ad.nom_patient}} </td>
+            <td> {{ ad.prenom_patient}} </td>
+            <td> {{ ad.IPP_patient}} </td>
+            
+          
+    
+        </tr>  
+    </table>
+   
+ 
+
+   <a href="#/">Retour</a>
+   <br/>

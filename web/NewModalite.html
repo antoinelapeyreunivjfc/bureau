@@ -2,16 +2,30 @@
 
 
 <form novalidate class="simple-form">
-    <h3> Création d'une nouvelle modalite </h3>
+    <h3> Définition d'une nouvelle modalite </h3>
    
+<<<<<<< HEAD
+    Intitule: <input type="text" ng-model="ctrl.mod.type" /><br />
+    <input type="submit" class="btn btn-primary active"  ng-click="ctrl.update()" value="Save" />
+    
+    <div ng-show="ctrl.mod.id">
+        Création d'une nouvelle modalite {{ ctrl.mod.id }} effectuée.
+=======
     Name: <input type="text" ng-model="ctrl.mo" /><br />
     <input type="submit" ng-click="ctrl.update()" value="Save" />
     
     <div ng-show="ctrl.mo.id">
         Création d'un nouveau crayon d'identifiant {{ ctrl.mo.id}} effectuée.
+>>>>>>> parent of 2fdb44c... gyutuk
     </div>
     
     <br/>
     
     <a href="#/">Retour</a>
-</form>
+   <br/>
+    <a href="#/modalites">Liste des modalites</a>
+<br/>
+</form>   
+
+    
+  
