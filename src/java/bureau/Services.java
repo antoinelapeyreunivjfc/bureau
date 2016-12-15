@@ -411,7 +411,7 @@ public class Services {
         em.getTransaction().commit();
     }
     
-    public CCAM newCCAM(int code_CCAM, String libelle, String cout) {
+    public CCAM newCCAM(String code_CCAM, String libelle, String cout) {
         CCAM ccam = new CCAM();
         ccam.setCode_CCAM(code_CCAM);
         ccam.setLibelle(libelle);

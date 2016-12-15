@@ -22,6 +22,10 @@ public class UF implements Serializable {
     private int code_UF;
     @Column
     private String nom_UF;
+    
+    /*Commande SQL pour remplir la base :
+    INSERT INTO `bureau`.`UF` (`code_UF`, `nom_UF`) VALUES ('1', 'Gastro-enterologie'), ('2', 'Diabétologie'), ('3', 'Pneumologie'), ('4', 'Oncologie'), ('5', 'Orthopédie'), ('6', 'Soins paliatifs'), ('7', 'Kinésithérapie'), ('8', 'Consultations médicales'), ('9', 'Radiothérapie');
+    */
 
     public int getCode_UF() {
         return code_UF;

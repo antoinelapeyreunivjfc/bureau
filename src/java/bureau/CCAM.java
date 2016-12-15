@@ -19,19 +19,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class CCAM implements Serializable {
     @Id
-    private int code_CCAM;
+    private String code_CCAM;
     @Column
     private String libelle;
     @Column
     private String cout;
     
-   
+    /*Commande SQL pour remplir la base :
+    INSERT INTO `bureau`.`CCAM` (`code_CCAM`, `cout`, `libelle`) VALUES ('ZBQK002', '20', 'Radiographie du thorax'), ('ZCQK002', '20', 'Radiographie de l\'abdomen sans préparation'), ('EAQH002', '20', 'Scanographie des vaisseaux encéphaliques'), ('EBQH006', '20', 'Scanographie des vaisseaux cervicaux'), ('ZZQN002', '20', 'Restitution tridimensionnelle des images acquises par remnographie'), ('AAQN004', '20', 'Remnographhie fonctionnelle du cerveau pour étude des fonctions motrices');
+    */
 
-    public int getCode_CCAM() {
+    public String getCode_CCAM() {
         return code_CCAM;
     }
 
-    public void setCode_CCAM(int code_CCAM) {
+    public void setCode_CCAM(String code_CCAM) {
         this.code_CCAM = code_CCAM;
     }
 
@@ -64,10 +66,10 @@ public class CCAM implements Serializable {
         return true;
     }
     
-    @Override
+    /*@Override
     public int hashCode() {
         int hash = 0;
         hash += (int) code_CCAM;
         return hash;
-    }
+    }*/
 }
