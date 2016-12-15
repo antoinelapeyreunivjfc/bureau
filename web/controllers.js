@@ -89,7 +89,7 @@ angular.module('monApp')
 
         .controller('ActesController', ['Actes',
             function (Actes) {
-                this.actes = Actes.query();
+                this.actes = Actes.query(); 
                 this.delete = function (ac) {
                     // appel DELETE asynchrone au service web sur /actes/{id}
                     //ac.$delete();
@@ -130,7 +130,7 @@ angular.module('monApp')
                     if (typeof this.selAdm !== 'undefined') {
                         this.ac.admission = this.admission[this.selAdm];
                     }
-                    if (typeof this.selUF !== 'undefined') {
+                    if (typeof this.selUf !== 'undefined') {
                         this.ac.UF = this.uf[this.selUf];
                     }
                     if (typeof this.selMod !== 'undefined') {
@@ -140,7 +140,7 @@ angular.module('monApp')
                         this.ac.CCAM = this.ccam[this.selCcam];
                     }
                     this.ac.$save();
-                    $location.path("/actes")
+                    $location.path("/actes");
                 };
             }
         ])
