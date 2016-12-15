@@ -38,21 +38,20 @@ public class Acte implements Serializable {
     @Column
     String heure;
     
-    @Column
-    //@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne
     Admission admission;
     
-    @Column
+    @ManyToOne
     UF uf;
     
-    @Column
+    @ManyToOne
     Modalite modalite;
     
-    @Column
+    @ManyToOne
     CCAM ccam;
     
     @Column
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany
     List<Images> images;
 
     public int getId() {

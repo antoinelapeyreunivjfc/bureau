@@ -39,8 +39,7 @@ public class Admission implements Serializable {
     @Column
     String IPP_patient;
     
-    @Column
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany
     List<Acte> actes;
 
     public int getIEP() {
