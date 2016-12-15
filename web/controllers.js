@@ -109,6 +109,10 @@ angular.module('monApp')
                 this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes
+                    this.ac.admission = this.admission[this.selAdm];
+                    this.ac.UF = this.uf[this.selUf];
+                    this.ac.modalite = this.modalite[this.selMod];
+                    this.ac.CCAM = this.ccam[this.selCcam];
                     this.ac.$save();
                 };
             }])
@@ -123,6 +127,18 @@ angular.module('monApp')
                 this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes/{id} 
+                    if (typeof this.selAdm !== 'undefined') {
+                        this.ac.admission = this.admission[this.selAdm];
+                    }
+                    if (typeof this.selUF !== 'undefined') {
+                        this.ac.UF = this.uf[this.selUf];
+                    }
+                    if (typeof this.selMod !== 'undefined') {
+                        this.ac.modalite = this.modalite[this.selMod];
+                    }
+                    if (typeof this.selCcam !== 'undefined') {
+                        this.ac.CCAM = this.ccam[this.selCcam];
+                    }
                     this.ac.$save();
                     $location.path("/actes")
                 };

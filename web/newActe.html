@@ -6,17 +6,17 @@
    
     Date : <input type="text" ng-model="ctrl.ac.date" /><br />
     Heure : <input type="text" ng-model="ctrl.ac.heure" /><br />
-    Admission : <select ng-repeat="ad in ctrl.admission">
-        <option> {{ ad.IEP }} - {{ ad.nom_patient }} {{ ad.prenom_patient }} </option>
+    Admission : <select ng-model='ctrl.selAdm'>
+        <option ng-repeat="ad in ctrl.admission" ng-value='$index'> {{ ad.IEP + " - " + ad.nom_patient + " " + ad.prenom_patient }} </option>
     </select><br />
-    UF : <select ng-repeat="uf in ctrl.uf">
-        <option> {{ uf.code_UF }} - {{ uf.nom_UF }} </option>
+    UF : <select ng-model='ctrl.selUf'>
+        <option ng-repeat="uf in ctrl.uf" ng-value='$index'> {{ uf.code_UF + " - " + uf.nom_UF }} </option>
     </select><br />
-    Modalité : <select ng-repeat="mod in ctrl.modalite">
-        <option> {{ mod.id_modalite }} - {{ mod.type }} </option>
+    Modalité : <select ng-model='ctrl.selMod'>
+        <option ng-repeat="mod in ctrl.modalite" ng-value='$index'> {{ mod.id_modalite + " - " + mod.type }} </option>
     </select><br />
-    CCAM : <select ng-repeat="ccam in ctrl.ccam">
-        <option> {{ ccam.code_CCAM }} </option>
+    CCAM : <select ng-model='ctrl.selCcam'>
+        <option ng-repeat="ccam in ctrl.ccam" ng-value='$index'> {{ ccam.code_CCAM + " - " + ccam.libelle }} </option>
     </select><br />
     <br />
     <input type="submit" ng-click="ctrl.update()" value="Save" />

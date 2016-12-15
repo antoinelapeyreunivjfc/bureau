@@ -2,19 +2,25 @@
 
 <h3>Liste des actes :</h3> 
 
-<table>
+<table border="1">
     <tr>
         <th> Id </th>
         <th> Date </th>
         <th> Heure </th>
+        <th> Admission </th>
+        <th> UF </th>
+        <th> Modalité </th>
+        <th> CCAM </th>
+        <th> Edit </th>
+        <th> Delete </th>
     <tr ng-repeat='ac in ctrl.actes'>
         <td> {{ ac.id }} </td>
         <td> {{ ac.date }} </td>
         <td> {{ ac.heure }} </td>
-        <td> {{ ac.admission }} </td>
-        <td> {{ ac.uf }} </td>
-        <td> {{ ac.modalite }} </td>
-        <td> {{ ac.ccam }} </td>
+        <td> {{ ac.admission.IEP + " - " + ac.admission.nom_patient + " " + ac.admission.prenom_patient }} </td>
+        <td> {{ ac.UF.nom_UF }} </td>
+        <td> {{ ac.modalite.type }} </td>
+        <td> {{ ac.CCAM.libelle }} </td>
         <td> <a ng-href="#/acte/edit/{{ac.id}}"/> Edit </a>
         <td> <input type="button" value="delete" ng-click="ctrl.delete(ac)"/> 
     </tr>
