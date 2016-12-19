@@ -44,6 +44,14 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ActeEditController as ctrl",
                     templateUrl: 'editActe.html'
                 })
+                .when('/acte/:id', {
+                    controller: "ActeController as ctrl",
+                    templateUrl: 'acte.html'
+                })
+                .when('/acte/image/new/:id', {
+                    controller: "ImageNewController as ctrl",
+                    templateUrl: 'newImage.html'
+                })
                 .when('/modalites/new', {
                     controller: "ModalitesNewController as ctrl",
                     templateUrl: 'newModalite.html'
@@ -56,6 +64,6 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ModaliteNewController as ctrl",
                     templateUrl: 'newModalite.html'
                 })
-                .otherwise({redirectTo: '/crayons'});
+                .otherwise({redirectTo: '/actes'});
     }]);
 

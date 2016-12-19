@@ -11,6 +11,7 @@
         <th> UF </th>
         <th> Modalité </th>
         <th> CCAM </th>
+        <th> Details </th>
         <th> Edit </th>
         <th> Delete </th>
     <tr ng-repeat='ac in ctrl.actes'>
@@ -21,6 +22,7 @@
         <td> {{ ac.UF.nom_UF }} </td>
         <td> {{ ac.modalite.type }} </td>
         <td> {{ ac.CCAM.libelle }} </td>
+        <td> <a ng-href="#/acte/{{ac.id}}"/> Details </a> </td>
         <td> <a ng-href="#/acte/edit/{{ac.id}}"/> Edit </a>
         <td> <input type="button" value="delete" ng-click="ctrl.delete(ac)"/> 
     </tr>

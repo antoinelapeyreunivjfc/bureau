@@ -50,9 +50,14 @@ public class Acte implements Serializable {
     @ManyToOne
     CCAM ccam;
     
-    @Column
     @OneToMany
     List<Images> images;
+    
+    @Column
+    boolean passage_pp;
+    
+    @Column
+    boolean passage_factu;
 
     public int getId() {
         return id;
@@ -116,6 +121,22 @@ public class Acte implements Serializable {
 
     public void setImages(List<Images> images) {
         this.images = images;
+    }
+
+    public boolean getPassage_pp() {
+        return passage_pp;
+    }
+
+    public void setPassage_pp(boolean passage_pp) {
+        this.passage_pp = passage_pp;
+    }
+
+    public boolean getPassage_factu() {
+        return passage_factu;
+    }
+
+    public void setPassage_factu(boolean passage_factu) {
+        this.passage_factu = passage_factu;
     }
     
     

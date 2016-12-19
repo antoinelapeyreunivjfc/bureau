@@ -242,8 +242,16 @@ public class RestServices {
     @GET
     @Path("images")
     @Produces("application/json")
-    public List<Images> getAllImages(){
-        return serv.getAllImages();
+    public List<Images> getAllImages(@DefaultValue("") @QueryParam("acte") String type ) {
+        if (!type.equals("")) {
+            System.out.println("if");
+            return serv.getImageByActe(Integer.valueOf(type));
+        }
+            
+        else {
+            System.out.println("else");
+            return serv.getAllImages();
+        }
     }
     
     @POST

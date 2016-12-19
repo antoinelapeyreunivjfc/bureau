@@ -456,6 +456,12 @@ public class Services {
         return res;
     }
     
+    public List<Images> getImageByActe(int id) {
+        TypedQuery<Images> query = em.createQuery("SELECT i FROM Images i WHERE acte_id = " + id, Images.class);
+        List<Images> res = query.getResultList();
+        return res;
+    }
+    
     public List<Images> getAllImages() {
 	TypedQuery<Images> query = em.createQuery("SELECT i FROM Images i", Images.class);
         List<Images> res = query.getResultList();

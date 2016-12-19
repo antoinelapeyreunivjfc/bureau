@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,6 +26,9 @@ public class Images {
     
     @Column
     private String file_image;
+    
+    @ManyToOne
+    Acte acte;
 
     public int getId_image() {
         return id_image;
@@ -41,6 +45,13 @@ public class Images {
     public void setFile_image(String file_image) {
         this.file_image = file_image;
     }
-   
+
+    public Acte getActe() {
+        return acte;
+    }
+
+    public void setActe(Acte acte) {
+        this.acte = acte;
+    }
    
 }

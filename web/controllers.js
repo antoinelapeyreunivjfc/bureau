@@ -117,7 +117,6 @@ angular.module('monApp')
                 };
             }])
 
-
         .controller('ActeEditController', ['$routeParams', 'Actes', '$location', 'Admission', 'UF', 'Modalite', 'CCAM',
             function ($routeParams, Actes, $location, Admission, UF, Modalite, CCAM) {
                 this.ac = Actes.get({id: $routeParams.id});
@@ -140,6 +139,32 @@ angular.module('monApp')
                         this.ac.CCAM = this.ccam[this.selCcam];
                     }
                     this.ac.$save();
+                    $location.path("/actes");
+                };
+            }
+        ])
+        
+        .controller('ActeController', ['$routeParams', 'Actes', '$location', 'Images',
+            function ($routeParams, Actes, $location, Images) {
+                this.acte = Actes.get({id: $routeParams.id});
+                this.images = Images.query({acte: $routeParams.id});
+                this.delete = function (ac) {
+                    // appel DELETE asynchrone au service web sur /actes/{id}
+                    //ac.$delete();
+                    Actes.delete(ac);
+                    $location.path("/actes");
+                };
+            }
+        ])
+        
+        .controller('ImageNewController', ['$routeParams', 'Actes', '$location', 'Images',
+            function ($routeParams, Actes, $location, Images) {
+                this.ac = Actes.get({id: $routeParams.id});
+                this.image = new Images();
+                this.update = function () {
+                    // appel POST asynchrone au service web sur /actes/{id}
+                    this.image.acte = this.ac;
+                    this.image.$save();
                     $location.path("/actes");
                 };
             }

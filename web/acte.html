@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<h3>Acte :</h3> 
+
+Id : {{ ctrl.acte.id }} <br/>
+Date : {{ ctrl.acte.date }} <br/>
+Heure : {{ ctrl.acte.heure }} <br/>
+Admission : {{ ctrl.acte.admission.IEP + " - " + ctrl.acte.admission.nom_patient + " " + ctrl.acte.admission.prenom_patient }} <br/>
+UF : {{ ctrl.acte.UF.nom_UF }} <br/>
+Modalité : {{ ctrl.acte.modalite.type }} <br/>
+CCAM : {{ ctrl.acte.CCAM.libelle }} <br/>
+Images : 
+<table>
+    <tr>
+        <th> Id </th>
+        <th> File </th>
+    <tr ng-repeat='im in ctrl.images'>
+        <td> {{ im.id_image }} </td>
+        <td> {{ im.file_image }} </td>
+    </tr> 
+</table>
+<a ng-href="#/acte/image/new/{{ctrl.acte.id}}"/> Ajouter image </a> <br/>
+<a ng-href="#/acte/edit/{{ctrl.acte.id}}"/> Edit </a> <br/>
+<input type="button" value="delete" ng-click="ctrl.delete(ac)"/>
+<br/>
+   
+<a ng-href="#/acte/new"/> Nouvel acte </a>
+
+<br/>
+
+<a href="#/actes">Liste des actes</a>
