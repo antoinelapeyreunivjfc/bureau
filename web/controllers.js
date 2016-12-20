@@ -165,14 +165,14 @@ angular.module('monApp')
                     // appel POST asynchrone au service web sur /actes/{id}
                     this.image.acte = this.ac;
                     this.image.$save();
-                    $location.path("/actes");
+                    $location.path("/acte/"+this.ac.id);
                 };
             }
         ])
         
         .controller('AdmissionController', ['Admission',
             function (Admission) {
-                this.admission = Admission.query();
+                this.admissions = Admission.query();
                 this.delete = function (ad) {
                     // appel DELETE asynchrone au service web sur /actes/{id}
                     //ac.$delete();
@@ -200,6 +200,20 @@ angular.module('monApp')
                     // appel POST asynchrone au service web sur /actes/{id} 
                     this.ad.$save();
                     $location.path("/admission")
+                };
+            }
+        ])
+        
+        .controller('OneAdmissionController', ['$routeParams', 'Admission', '$location', 'Actes',
+            function ($routeParams, Admission, $location, Actes) {
+                this.ad = Admission.get({id: $routeParams.id});
+                this.actes = Actes.query({admission: $routeParams.id});
+                this.delete = function (ac) {
+                    // appel DELETE asynchrone au service web sur /actes/{id}
+                    //ac.$delete();
+                    Actes.delete(ac);
+                    // remet à jour le tableau des actes en suprimant l'élément effacé
+                    this.actes.splice(this.actes.indexOf(ac), 1);
                 };
             }
         ])

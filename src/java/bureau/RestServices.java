@@ -125,8 +125,11 @@ public class RestServices {
     @GET
     @Path("actes")
     @Produces("application/json")
-    public List<Acte> getAllActes(){
-        return serv.getAllActes();
+    public List<Acte> getAllActes(@DefaultValue("") @QueryParam("admission") String type ) {
+        if (!type.equals(""))
+            return serv.getActeByAdmission(Integer.valueOf(type));
+        else
+            return serv.getAllActes();
     }
     
     @POST
@@ -243,15 +246,10 @@ public class RestServices {
     @Path("images")
     @Produces("application/json")
     public List<Images> getAllImages(@DefaultValue("") @QueryParam("acte") String type ) {
-        if (!type.equals("")) {
-            System.out.println("if");
+        if (!type.equals(""))
             return serv.getImageByActe(Integer.valueOf(type));
-        }
-            
-        else {
-            System.out.println("else");
+        else
             return serv.getAllImages();
-        }
     }
     
     @POST

@@ -177,6 +177,12 @@ public class Services {
         List<Acte> res = query.getResultList();
         return res;
     }
+    
+    public List<Acte> getActeByAdmission(int id) {
+    TypedQuery<Acte> query = em.createQuery("SELECT a FROM Acte a WHERE admission_IEP = " + id, Acte.class);
+        List<Acte> res = query.getResultList();
+        return res;
+    }
 
     public void newActe(Acte ac) {
         em.getTransaction().begin();

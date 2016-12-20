@@ -52,6 +52,14 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ImageNewController as ctrl",
                     templateUrl: 'newImage.html'
                 })
+                .when('/admissions', {
+                    controller: "AdmissionController as ctrl",
+                    templateUrl: 'listeAdmissions.html'
+                })
+                .when('/admission/:id', {
+                    controller: "OneAdmissionController as ctrl",
+                    templateUrl: 'listeActesAdmission.html'
+                })
                 .when('/modalites/new', {
                     controller: "ModalitesNewController as ctrl",
                     templateUrl: 'newModalite.html'

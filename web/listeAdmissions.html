@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<h3>Liste des admissions :</h3> 
+
+<table border="1">
+    <tr>
+        <th> IEP </th>
+        <th> IPP </th>
+        <th> Nom </th>
+        <th> Prénom </th>
+        <th> Details </th>
+        <th> Delete </th>
+    <tr ng-repeat='ad in ctrl.admissions'>
+        <td> {{ ad.IEP }} </td>
+        <td> {{ ad.IPP_patient }} </td>
+        <td> {{ ad.nom_patient }} </td>
+        <td> {{ ad.prenom_patient }} </td>
+        <td> <a ng-href="#/admission/{{ad.IEP}}"/> Details </a> </td>
+        <td> <input type="button" value="delete" ng-click="ctrl.delete(ad)"/> 
+    </tr>
+ 
+    
+</table>
+
+<br/>
+
+<a href="#/actes"> Tous les actes </a>
