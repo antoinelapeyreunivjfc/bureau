@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#/admissions">Liste des admissions</a></li>
+            <li><a href="#/actes">Liste des actes</a></li>
+            <li class="active"><a href="#/modalites">Liste des modalités</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">Liste des modalités :</div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a class="btn btn-info" href="#/modalite/new"/> Créer une nouvelle modalite </a>
+                    </div>
+                    
+                    <div class="col-sm-4 input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>  
+                        <input type="text" class="form-control" ng-model="searchBox"  placeholder ='Rechercher dans la liste'/>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br/>
+                <br>
+                <div class="table-responsive">    
+                    <table class="table table-hover">
+                        <tr>
+                            <th> Id </th>
+                            <th> Type </th>
+                            <th> Modifier </th>
+                            <th> Supprimer </th>
+                        </tr>
+                        <tr ng-repeat=" mod in ctrl.modalites| filter:searchBox:mod.type | filter:searchBox:mod.id_modalite">               
+                            <td> {{ mod.id_modalite}} </td>
+                            <td> {{ mod.type}} </td>
+                            <td> <a ng-href="#/modalite/edit/{{mod.id_modalite}}"/> Modfier </a>
+                            <td> <input type="button" value="Supprimer" ng-click="ctrl.delete(mod)"/> 
+
+                        </tr>  
+                    </table>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>

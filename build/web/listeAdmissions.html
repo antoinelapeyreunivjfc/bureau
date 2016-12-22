@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#/admissions">Liste des admissions</a></li>
+            <li><a href="#/actes">Liste des actes</a></li>
+            <li><a href="#/modalites">Liste des modalités</a></li>
+             
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Liste des admissions patients :</div>
+            <div class="panel-body">
+
+
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>  
+                    <input type="text" class="form-control" ng-model="searchBox"  placeholder ='Rechercher dans la liste'/>
+                </div>
+                <br/>
+                <div class="table-responsive">    
+                    <table class="table table-hover">
+                        <tr>
+                            <th> IEP </th>
+                            <th> IPP </th>
+                            <th> Nom </th>
+                            <th> Prénom </th>
+                            <th> Details des actes </th>
+                           
+                        <tr ng-repeat="ad in ctrl.admissions| filter:searchBox:ad.IEP | filter:searchBox:ad.nom_patient | filter:searchBox:ad.prenom_patient | filter:searchBox:ad.IPP_patient">   
+                            <td> {{ ad.IEP}} </td>
+                            <td> {{ ad.IPP_patient}} </td>
+                            <td> {{ ad.nom_patient}} </td>
+                            <td> {{ ad.prenom_patient}} </td>
+                            <td> <a ng-href="#/admission/{{ad.IEP}}"/> Details </a> </td>
+                            
+                        </tr>
+
+
+                    </table>
+                </div>
+                <br/>
+
+            </div>
+        </div>
+
+    </div>

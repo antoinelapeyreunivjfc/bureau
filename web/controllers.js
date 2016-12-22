@@ -100,29 +100,29 @@ angular.module('monApp')
             }
         ])
 
-        .controller('ActeNewController', ['Actes', 'Admission', 'UF', 'Modalite', 'CCAM',
-            function (Actes, Admission, UF, Modalite, CCAM) {
+        .controller('ActeNewController', ['Actes', 'Admission', 'UF', 'Modalites', 'CCAM',
+            function (Actes, Admission, UF, Modalites, CCAM) {
                 this.ac = new Actes();
                 this.admission = Admission.query();
                 this.uf = UF.query();
-                this.modalite = Modalite.query();
+                this.modalite = Modalites.query();
                 this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes
                     this.ac.admission = this.admission[this.selAdm];
-                    this.ac.UF = this.uf[this.selUf];
+                    this.ac.uf = this.uf[this.selUf];
                     this.ac.modalite = this.modalite[this.selMod];
-                    this.ac.CCAM = this.ccam[this.selCcam];
+                    this.ac.ccam= this.ccam[this.selCcam];
                     this.ac.$save();
                 };
             }])
 
-        .controller('ActeEditController', ['$routeParams', 'Actes', '$location', 'Admission', 'UF', 'Modalite', 'CCAM',
-            function ($routeParams, Actes, $location, Admission, UF, Modalite, CCAM) {
+        .controller('ActeEditController', ['$routeParams', 'Actes',  'Admission', 'UF', 'Modalites', 'CCAM','$location',
+            function ($routeParams, Actes, Admission, UF, Modalites, CCAM, $location) {
                 this.ac = Actes.get({id: $routeParams.id});
                 this.admission = Admission.query();
                 this.uf = UF.query();
-                this.modalite = Modalite.query();
+                this.modalite = Modalites.query();
                 this.ccam = CCAM.query();
                 this.update = function () {
                     // appel POST asynchrone au service web sur /actes/{id} 
@@ -130,14 +130,15 @@ angular.module('monApp')
                         this.ac.admission = this.admission[this.selAdm];
                     }
                     if (typeof this.selUf !== 'undefined') {
-                        this.ac.UF = this.uf[this.selUf];
+                        this.ac.uf = this.uf[this.selUf];
                     }
                     if (typeof this.selMod !== 'undefined') {
                         this.ac.modalite = this.modalite[this.selMod];
                     }
                     if (typeof this.selCcam !== 'undefined') {
-                        this.ac.CCAM = this.ccam[this.selCcam];
+                        this.ac.ccam = this.ccam[this.selCcam];
                     }
+                   
                     this.ac.$save();
                     $location.path("/actes");
                 };
@@ -173,13 +174,13 @@ angular.module('monApp')
         .controller('AdmissionController', ['Admission',
             function (Admission) {
                 this.admissions = Admission.query();
-                this.delete = function (ad) {
+               // this.delete = function (ad) {
                     // appel DELETE asynchrone au service web sur /actes/{id}
                     //ac.$delete();
-                    Admission.delete(ad);
+                   // Admission.delete(ad);
                     // remet à jour le tableau des actes en suprimant l'élément effacé
-                    this.admission.splice(this.admission.indexOf(ad), 1);
-                };
+                   // this.admission.splice(this.admission.indexOf(ad), 1);
+               // };
             }
         ])
 
@@ -218,35 +219,35 @@ angular.module('monApp')
             }
         ])
         
-        .controller('ModaliteController', ['Modalites',
+      .controller('ModalitesController', ['Modalites',
             function (Modalites) {
                 this.modalites = Modalites.query();
-                this.delete = function (mo) {
-                    // appel DELETE asynchrone au service web sur /crayons/{id}
-                    //cr.$delete();
-                    Modalites.delete(mo);
-                    // remet à jour le tableau des crayons en suprimant l'élément effacé
-                    this.modalites.splice(this.modalites.indexOf(mo), 1);
+                this.delete = function (mod) {
+                    // appel DELETE asynchrone au service web sur /modalites/{id}
+                    //mo.$delete();
+                    Modalites.delete(mod);
+                    // remet à jour le tableau des modalites en suprimant l'élément effacé
+                    this.modalites.splice(this.modalites.indexOf(mod), 1);
                 };
             }
         ])
         .controller('ModaliteNewController', ['Modalites',
             function (Modalites) {
-                this.mo = new Modalites();
+                this.mod = new Modalites();
                 this.update = function () {
-                    // appel POST asynchrone au service web sur /crayons
-                    this.mo.$save();
+                    // appel POST asynchrone au service web sur /modalites
+                    this.mod.$save();
                 };
             }])
 
-
-        .controller('ModaliteEditController', ['$routeParams', 'Modalites', '$location',
+ .controller('ModaliteEditController', ['$routeParams', 'Modalites', '$location',
             function ($routeParams, Modalites, $location) {
-                this.mo = Modalites.get({id: $routeParams.id});
+                this.mod = Modalites.get({id: $routeParams.id});
                 this.update = function () {
-                    // appel POST asynchrone au service web sur /crayons/{id} 
-                    this.mo.$save();
-                    $location.path("/")
+                    // appel POST asynchrone au service web sur /modalites/{id} 
+                    this.mod.$save();
+                    $location.path("/modalites");
                 };
             }
         ])
+        

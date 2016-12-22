@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <br/>
+        <br>
+        <div class="container">
+            <div class="panel panel-info">
+                <div class="panel-heading">Edition de la modalite numero {{ ctrl.mod.id_modalite}} </div>
+                <div class="panel-body">
+
+                    <form novalidate class="form-inline">
+                        <div class="form-group">
+                            <label for="intitule">  Intitule: </label>
+                            <input type="text" class="form-control" ng-model="ctrl.mod.type" /><br />
+                            
+                            <br/>
+                            <br>
+                            <input type="submit" class="btn btn-info"ng-click="ctrl.update()" value="Save" />
+                            <a href="javascript:history.go(-1)" class="btn btn-default"  >
+                                <span class="glyphicon glyphicon-remove"></span> Annuler </a>
+                            
+                            </form>
+                        </div>
+                </div>
+            </div>
+
+        </div>

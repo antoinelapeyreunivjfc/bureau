@@ -60,18 +60,19 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "OneAdmissionController as ctrl",
                     templateUrl: 'listeActesAdmission.html'
                 })
-                .when('/modalites/new', {
-                    controller: "ModalitesNewController as ctrl",
+           
+                  .when('/modalites', {
+                    controller: "ModalitesController as ctrl",
+                    templateUrl: 'listeModalites.html'
+                })
+                .when('/modalite/new', {
+                    controller: "ModaliteNewController as ctrl",
                     templateUrl: 'newModalite.html'
                 })
                  .when('/modalite/edit/:id', {
                     controller: "ModaliteEditController as ctrl",
                     templateUrl: 'editModalite.html'
                 })
-                .when('/modalite/new', {
-                    controller: "ModaliteNewController as ctrl",
-                    templateUrl: 'newModalite.html'
-                })
-                .otherwise({redirectTo: '/actes'});
+                .otherwise({redirectTo: '/admissions'});
     }]);
 

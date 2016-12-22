@@ -1,31 +1,62 @@
 <!DOCTYPE html>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <br/>
+        <br>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">Créarion d'un nouvel acte</div>
+        <div class="panel-body">
+            <form novalidate class="form-inline">
+                <div class="form-group">
 
+                    <label for="intitule">Date :</label>
+                    <input type="text" class="form-control" ng-model="ctrl.ac.date" placeholder="jj/mm/aaaa" /><br />
 
-<form novalidate class="simple-form">
-    <h3> Définition du nouvel acte </h3>
-   
-    Date : <input type="text" ng-model="ctrl.ac.date" /><br />
-    Heure : <input type="text" ng-model="ctrl.ac.heure" /><br />
-    Admission : <select ng-model='ctrl.selAdm'>
-        <option ng-repeat="ad in ctrl.admission" ng-value='$index'> {{ ad.IEP + " - " + ad.nom_patient + " " + ad.prenom_patient }} </option>
-    </select><br />
-    UF : <select ng-model='ctrl.selUf'>
-        <option ng-repeat="uf in ctrl.uf" ng-value='$index'> {{ uf.code_UF + " - " + uf.nom_UF }} </option>
-    </select><br />
-    Modalité : <select ng-model='ctrl.selMod'>
-        <option ng-repeat="mod in ctrl.modalite" ng-value='$index'> {{ mod.id_modalite + " - " + mod.type }} </option>
-    </select><br />
-    CCAM : <select ng-model='ctrl.selCcam'>
-        <option ng-repeat="ccam in ctrl.ccam" ng-value='$index'> {{ ccam.code_CCAM + " - " + ccam.libelle }} </option>
-    </select><br />
-    <br />
-    <input type="submit" ng-click="ctrl.update()" value="Save" />
-    
-    <div ng-show="ctrl.ac.id">
-        Création d'un nouvel acte d'identifiant {{ ctrl.ac.id }} effectuée.
+                    <label for="intitule">Heure : </label>
+                    <input type="text" class="form-control" ng-model="ctrl.ac.heure" placeholder="hh:mm:ss"/><br />
+
+                    <label for="intitule">Admission : </label>
+                    <select class="form-control" ng-model='ctrl.selAdm'>
+                        <option ng-repeat="ad in ctrl.admission" ng-value='$index'> {{ ad.IEP + " - " + ad.nom_patient + " " + ad.prenom_patient }} </option>
+                    </select><br />
+
+                    <label for="intitule"> UF : </label>
+                    <select class="form-control" ng-model='ctrl.selUf'>
+                        <option ng-repeat="uf in ctrl.uf" ng-value='$index'> {{ uf.code_UF + " - " + uf.nom_UF}} </option>
+                    </select><br />
+
+                    <label for="intitule">Modalité : </label>
+                    <select class="form-control" ng-model='ctrl.selMod'>
+                        <option ng-repeat="mod in ctrl.modalite" ng-value='$index'> {{ mod.id_modalite + " - " + mod.type }} </option>
+                    </select><br />
+
+                    <label for="intitule"> CCAM : </label>
+                    <select class="form-control" ng-model='ctrl.selCcam'>
+                        <option ng-repeat="ccam in ctrl.ccam" ng-value='$index'> {{ ccam.code_CCAM + " - " + ccam.libelle }} </option>
+                    </select><br />
+                    <br />
+                    
+                    
+                   <div class="container">
+                    <input type="submit" class="btn btn-success" ng-click="ctrl.update()" value="Sauvegarder" />
+                     <a href="#/actes" class="btn btn-default"  >
+                       <span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
+
+                   
+                   </div>
+                    <div ng-show="ctrl.ac.id">
+                        Création d'un nouvel acte d'identifiant {{ ctrl.ac.id}} effectuée.
+                    </div>
+
+                    
+
+                   
+            </form>
+        </div>
     </div>
-    
-    <br/>
-    
-    <a href="#/actes">Retour</a>
-</form>
+
+</div>

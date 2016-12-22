@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+    </div>
+
+    <br/>
+    <br>
+
+    <div class="container"> 
+        <a class="btn btn-success btn-sm" ng-href="#/acte/new"/> Créer un nouvel acte </a>
+        <a class="btn btn-success btn-sm" href="#/admission/{{ ctrl.acte.admission.IEP}}"> Liste des actes de cette admission </a>
+        <a class="btn btn-success btn-sm" href="#/actes">Liste des actes</a>
+    </div>
+    <br/>
+    <br>
+
+    <div class="container">
+        <div class="panel panel-success">
+            <div class="panel-heading">Détails de l'acte :</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">Id :</label> {{ ctrl.acte.id}}</div></div>
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">Date :</label> {{ ctrl.acte.date}}</div></div>
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">Heure :</label>{{ ctrl.acte.heure}}</div></div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong> Admission :</strong></div>
+                    <div class="panel-body">
+
+                        <table class="table table-hover">
+                            <tr>
+                                <th>IEP</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                            <tr>
+                                <td> {{ ctrl.acte.admission.IEP}} </td>
+                                <td> {{ ctrl.acte.admission.nom_patient}} </td>
+                                <td> {{ ctrl.acte.admission.prenom_patient}} </td>
+                            </tr> 
+                        </table>
+
+                    </div></div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">UF :</label> {{ ctrl.acte.UF.nom_UF}}</div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">Modalité :</label> {{ ctrl.acte.modalite.type}}</div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="well well-sm"><label for="intitule">CCAM :</label>{{ ctrl.acte.CCAM.code_CCAM + " - " + ctrl.acte.CCAM.libelle }}}</div>
+                    </div></div>
+
+                <div class="well well-sm"><label for="intitule">Images :</label>
+                    <a class="btn btn-default" ng-href="#/acte/image/new/{{ctrl.acte.id}}"/> Ajouter une image </a> <br/>
+
+
+                    <table class="table table-hover">
+                        <tr>
+                            <th> Id </th>
+                            <th> File </th>
+                        <tr ng-repeat='im in ctrl.images'>
+                            <td> {{ im.id_image}} </td>
+                            <td> {{ im.file_image}} </td>
+                        </tr> 
+                    </table>
+                </div>
+                <div class="container"> 
+                    <input class="btn btn-default" type="button" value="Supprimer cet acte" ng-click="ctrl.delete(ac)"/>
+                    <a class="btn btn-default" ng-href="#/acte/edit/{{ctrl.acte.id}}"/> Editer cet acte </a> <br/>
+                </div>
+                </br>
+                <br>
+                <a href="javascript:history.go(-1)" class="btn btn-default"  >
+                    <span class="glyphicon glyphicon-arrow-left"></span> Retour </a>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix visible-lg"></div>

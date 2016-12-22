@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <br/>
+        <br>
+        <div class="container">
+            <div class="panel panel-info">
+                <div class="panel-heading">Création d'une nouvelle modalité</div>
+                <div class="panel-body">
 
-<form novalidate class="simple-form">
-    <h3> Création d'une nouvelle modalite </h3>
-   
-    Name: <input type="text" ng-model="ctrl.mo" /><br />
-    <input type="submit" ng-click="ctrl.update()" value="Save" />
-    
-    <div ng-show="ctrl.mo.id">
-        Création d'un nouveau crayon d'identifiant {{ ctrl.mo.id}} effectuée.
-    </div>
-    
-    <br/>
-    
-    <a href="#/">Retour</a>
-</form>
+                    <form novalidate class="form-inline">
+                        <div class="form-group">
+                            <label for="intitule">Intitulé de la modalité : </label>
+                            <input type="text" class="form-control" ng-model="ctrl.mod.type" placeholder="Ajouter une modalité" /><br />
+                            <br>
+                            <br/>
+                            <div class="container">
+                                <input type="submit" class="btn btn-info"  ng-click="ctrl.update()" value="Sauvegarder" />
+                                <a href="#/modalites" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
+
+                            </div>  
+                            <br>
+                            <br/>
+                            <div ng-show="ctrl.mod.id">
+                                Création d'une nouvelle modalite {{ctrl.mod.id}} effectuée.
+                            </div>
+
+
+
+
+                    </form>   
+                </div>
+            </div>
+
+        </div>

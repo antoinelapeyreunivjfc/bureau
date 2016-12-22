@@ -1,32 +1,59 @@
 <!DOCTYPE html>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+          <br/>
+        <br>
+        <div class="container">
+            <div class="panel panel-success">
+                <div class="panel-heading">Modification de l'acte d'identifiant {{ctrl.ac.id}}</div>
+                <div class="panel-body">
+                    <form novalidate class="form-inline">
+                        <div class="form-group">
 
+                            <label for="intitule">Date :</label>
+                            <input type="text" class="form-control" ng-model="ctrl.ac.date" /><br />
 
-<form novalidate class="simple-form">
-    <h3> Edition de l'acte d'identifiant {{ ctrl.ac.id }} </h3>
-    
-    Date : <input type="text" ng-model="ctrl.ac.date" /><br />
-    Heure : <input type="text" ng-model="ctrl.ac.heure" /><br />
-    Admission : <select ng-model='ctrl.selAdm'>
-        <option selected> {{ ctrl.ac.admission.IEP + " - " + ctrl.ac.admission.nom_patient + " " + ctrl.ac.admission.prenom_patient }} </option>
-        <option> ----- </option>
-        <option ng-repeat="ad in ctrl.admission" ng-value='$index'> {{ ad.IEP + " - " + ad.nom_patient + " " + ad.prenom_patient }} </option>
-    </select><br />
-    UF : <select ng-model='ctrl.selUf'>
-        <option selected> {{ ctrl.ac.UF.code_UF + " - " + ctrl.ac.UF.nom_UF }} </option>
-        <option> ----- </option>
-        <option ng-repeat="uf in ctrl.uf" ng-value='$index'> {{ uf.code_UF + " - " + uf.nom_UF }} </option>
-    </select><br />
-    Modalité : <select ng-model='ctrl.selMod'>
-        <option selected> {{ ctrl.ac.modalite.id_modalite + " - " + ctrl.ac.modalite.type }} </option>
-        <option> ----- </option>
-        <option ng-repeat="mod in ctrl.modalite" ng-value='$index'> {{ mod.id_modalite + " - " + mod.type }} </option>
-    </select><br />
-    CCAM : <select ng-model='ctrl.selCcam'>
-        <option selected> {{ ctrl.ac.CCAM.code_CCAM + " - " + ctrl.ac.CCAM.libelle }} </option>
-        <option> ----- </option>
-        <option ng-repeat="ccam in ctrl.ccam" ng-value='$index'> {{ ccam.code_CCAM + " - " + ccam.libelle }} </option>
-    </select><br />
-    <br />
-    <input type="submit" ng-click="ctrl.update()" value="Save" />
-    
-</form>
+                            <label for="intitule">Heure : </label>
+                            <input type="text" class="form-control" ng-model="ctrl.ac.heure" /><br />
+
+                            <label for="intitule">Admission : </label>
+                            <select class="form-control" ng-model='ctrl.selAdm'>
+                                <option selected> {{ctrl.ac.admission.IEP + " - " + ctrl.ac.admission.nom_patient + " " + ctrl.ac.admission.prenom_patient}} </option>
+                                <option> ----- </option>
+                                <option ng-repeat="ad in ctrl.admission" ng-value='$index'> {{ ad.IEP + " - " + ad.nom_patient + " " + ad.prenom_patient }} </option>
+                            </select><br />
+
+                            <label for="intitule"> UF : </label>
+                            <select class="form-control" ng-model='ctrl.selUf'>
+                                <option selected> {{ ctrl.ac.UF.code_UF + " - " + ctrl.ac.UF.nom_UF}} </option>
+                                <option> ----- </option>
+                                <option ng-repeat="uf in ctrl.uf" ng-value='$index'> {{ uf.code_UF + " - " + uf.nom_UF}} </option>
+                            </select><br />
+
+                            <label for="intitule">Modalité : </label>
+                            <select class="form-control" ng-model='ctrl.selMod'>
+                                <option selected> {{ ctrl.ac.modalite.id_modalite + " - " + ctrl.ac.modalite.type}} </option>
+                                <option> ----- </option>
+                                <option ng-repeat="mod in ctrl.modalite" ng-value='$index'> {{ mod.id_modalite + " - " + mod.type }} </option>
+                            </select><br />
+
+                            <label for="intitule"> CCAM : </label>
+                            <select class="form-control" ng-model='ctrl.selCcam'>
+                                <option selected> {{ ctrl.ac.CCAM.code_CCAM + " - " + ctrl.ac.CCAM.libelle}} </option>
+                                <option> ----- </option>
+                                <option ng-repeat="ccam in ctrl.ccam" ng-value='$index'> {{ ccam.code_CCAM + " - " + ccam.libelle }} </option>
+                            </select><br />
+                            <br />
+                            <input type="submit" class="btn btn-success" ng-click="ctrl.update()" value="Save" />
+                           
+                            <a href="javascript:history.go(-1)" class="btn btn-default"  >
+                                <span class="glyphicon glyphicon-remove"></span> Annuler </a>
+                                
+                    </form>
+                </div>
+            </div>
+
+        </div>

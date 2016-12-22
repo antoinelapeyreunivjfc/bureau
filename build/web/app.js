@@ -36,14 +36,43 @@ angular.module('monApp').config(['$routeProvider', function routeConfig($routePr
                     controller: "ActesController as ctrl",
                     templateUrl: 'listeActes.html'
                 })
-                .when('/actes/new', {
-                    controller: "ActesNewController as ctrl",
+                .when('/acte/new', {
+                    controller: "ActeNewController as ctrl",
                     templateUrl: 'newActe.html'
                 })
-                .when('/modalites/new', {
+                .when('/acte/edit/:id', {
+                    controller: "ActeEditController as ctrl",
+                    templateUrl: 'editActe.html'
+                })
+                .when('/acte/:id', {
+                    controller: "ActeController as ctrl",
+                    templateUrl: 'acte.html'
+                })
+                .when('/acte/image/new/:id', {
+                    controller: "ImageNewController as ctrl",
+                    templateUrl: 'newImage.html'
+                })
+                .when('/admissions', {
+                    controller: "AdmissionController as ctrl",
+                    templateUrl: 'listeAdmissions.html'
+                })
+                .when('/admission/:id', {
+                    controller: "OneAdmissionController as ctrl",
+                    templateUrl: 'listeActesAdmission.html'
+                })
+           
+                  .when('/modalites', {
+                    controller: "ModalitesController as ctrl",
+                    templateUrl: 'listeModalites.html'
+                })
+                .when('/modalite/new', {
                     controller: "ModaliteNewController as ctrl",
                     templateUrl: 'newModalite.html'
                 })
-                .otherwise({redirectTo: '/crayons'});
+                 .when('/modalite/edit/:id', {
+                    controller: "ModaliteEditController as ctrl",
+                    templateUrl: 'editModalite.html'
+                })
+                .otherwise({redirectTo: '/admissions'});
     }]);
 

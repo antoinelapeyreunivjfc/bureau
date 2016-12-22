@@ -35,10 +35,10 @@ angular.module('monApp').factory('UF', ['$resource', function($resource) {
     
 }]);
 
-angular.module('monApp').factory('Modalite', ['$resource', function($resource) {
+angular.module('monApp').factory('Modalites', ['$resource', function($resource) {
         
     //  voir https://docs.angularjs.org/api/ngResource/service/$resource pour la doc de cet objet
-    return $resource('/bureau/webresources/generic/modalite/:id', { id : '@id_modalite'} );
+    return $resource('/bureau/webresources/generic/modalites/:id', { id : '@id_modalite'} );
     
 }]);
 

@@ -150,7 +150,7 @@ public class bureauTest {
         
     }*/
     
-    @Test
+    /* @Test
     public void acte() {
         clean();
         Services serv = new Services(DatabaseUtils.fact());
@@ -169,7 +169,7 @@ public class bureauTest {
         /*Acte res2 = serv.getActesById(ac2.getId_acte());
         System.out.println(res2.getDate() + " " + res2.getHeure());*/
       
-        List<Acte> res3 = serv.getAllActes();
+      /*  List<Acte> res3 = serv.getAllActes();
         System.out.println(res3.size());
     }
     

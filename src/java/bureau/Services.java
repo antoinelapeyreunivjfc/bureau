@@ -272,7 +272,7 @@ public class Services {
 
     }
 
-    public void removeAdmission(int IEP) {
+   public void removeAdmission(int IEP) {
 
         Admission ac = em.find(Admission.class, IEP);
         em.getTransaction().begin();
@@ -385,7 +385,7 @@ public class Services {
     public void removeModalite(int id) {
        
         Modalite mod = em.find( Modalite.class, id );
-	em.getTransaction( ).begin( );
+	em.getTransaction( ).begin();
         em.remove(mod);
         em.getTransaction().commit();
        

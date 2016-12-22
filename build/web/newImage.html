@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <label class="navbar-brand" >Unité de Radiologie</label>
+        </div>
+        <br/>
+        <br>
+        <div class="container">
+            <div class="panel panel-success">
+                <div class="panel-heading">Ajouter une image</div>
+                <div class="panel-body">
+                    <form novalidate class="simple-form">
+                        <form novalidate class="form-inline">
+                            <div class="form-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><strong> Admission :</strong></div>
+                                    <div class="panel-body">
+
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <th>IEP</th>
+                                                <th>Nom</th>
+                                                <th>Prénom</th>
+                                            <tr>
+                                                <td> {{ ctrl.ac.admission.IEP}} </td>
+                                                <td> {{ ctrl.ac.admission.nom_patient}} </td>
+                                                <td> {{ ctrl.ac.admission.prenom_patient}} </td>
+                                            </tr> 
+                                        </table>
+
+                                    </div></div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="well well-sm"><label for="intitule">UF :</label> {{ ctrl.ac.UF.nom_UF}}</div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="well well-sm"><label for="intitule">Modalité :</label> {{ ctrl.ac.modalite.type}}</div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="well well-sm"><label for="intitule">CCAM :</label>{{ ctrl.ac.CCAM.code_CCAM + " - " + ctrl.ac.CCAM.libelle }}</div>
+                                    </div></div>
+
+                                <label for="intitule"> Image :</label>
+                                <input type="text" class="form-control" ng-model="ctrl.image.file_image" placeholder="Copiez votre lien ici" /><br />
+
+
+                                <div class="container">
+                                    <input type="submit" class="btn btn-success" ng-click="ctrl.update()" value="Save" />
+
+                                    <a href="javascript:history.go(-1)" class="btn btn-default"  >
+                                        <span class="glyphicon glyphicon-remove"></span> Annuler </a>
+                                </div>
+                        </form>
+                </div>
+            </div>
+
+        </div>
